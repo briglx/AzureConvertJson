@@ -25,8 +25,8 @@ This setup will deploy the core infrastructure needed to run the the solution:
 
 - Core infrastructure
 
-    - Resource Group
-    - Eventhubs
+  - Resource Group
+  - Eventhubs
 
 Core infrastructure
 -------------------
@@ -147,4 +147,4 @@ Run Docker Image locally
 References
 ----------
 - Eventhubs python library https://docs.microsoft.com/en-us/python/api/overview/azure/eventhub-readme?view=azure-python
-- 
+   
