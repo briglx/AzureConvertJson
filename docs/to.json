@@ -5,9 +5,7 @@
     "GeneratorType": "EnergiNet",
     "Body": {
       "type": "TextualBody",
-      "value": "
-        {\"SystemGuid\":\"479815af-0fcb-4dfb-913a-4e4e8a746260\",\"HistorySamples\":[{\"ItemName\":\"571313115101547814\",\"Value\": 25.93,\"Time\": \"2019-07-23T22:00:00Z\",\"Quality\": \"Good\"},{\"ItemName\": \"571313115101547814\",\"Value\": 25.93,\"Time\": \"2019-07-24T22:00:00Z\",\"Quality\": \"Good\"}]}
-        ",
+      "value": "{\"SystemGuid\":\"479815af-0fcb-4dfb-913a-4e4e8a746260\",\"HistorySamples\":[{\"ItemName\":\"571313115101547814\",\"Value\": 25.93,\"Time\": \"2019-07-23T22:00:00Z\",\"Quality\": \"Good\"},{\"ItemName\": \"571313115101547814\",\"Value\": 25.93,\"Time\": \"2019-07-24T22:00:00Z\",\"Quality\": \"Good\"}]}",
       "format": "application/json"
     },
     "BodyProperties": [
