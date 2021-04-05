@@ -5,13 +5,13 @@ import logging
 import os
 import sys
 
-
 # def main():
 #     """Convert Json."""
 #     print(f"connection string: {connection_string}")
 
 #     if not connection_string:
 #         raise ValueError("Parameter connection_string is required.")
+
 
 def main():
     print(f"Got it")

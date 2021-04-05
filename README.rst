@@ -4,8 +4,47 @@ Convert Json
 
 This is an example project on using Azure Logic apps to convert Json
 
+This project demonstrates how to convert Json using several Azure technologies:
+
+- Python Azure API
+- Docker Images
+- Azure Eventhubs
+- Azure Logic Apps
 
 |architecture-overview|
+
+Workflow:
+
+- Generator App sents message to Eventhubs
+- LogicApp converts the message to a new format
+- LogicApp publish new message to receiving Eventhubs
+  
+Setup
+=====
+This setup will deploy the core infrastructure needed to run the the solution:
+
+- Core infrastructure
+
+    - Resource Group
+    - Eventhubs
+
+Core infrastructure
+-------------------
+
+**Resource Group**
+
+Create a resource group for this project
+
+.. code-block:: bash
+
+    az group create --name jsonconvert --location westus
+
+**Evenhubs**
+
+.. code-block:: bash
+
+    # TBD
+
 
 Development
 ===========
@@ -103,3 +142,9 @@ Run Docker Image locally
 
 
 .. |architecture-overview| image:: https://raw.githubusercontent.com/briglx/AzureConvertJson/main/docs/JsonConvertArchitecture.png?token=AAJ6RRQ45AKGR7N2KAKPCCTANOIGE
+
+
+References
+----------
+- Eventhubs python library https://docs.microsoft.com/en-us/python/api/overview/azure/eventhub-readme?view=azure-python
+- 
