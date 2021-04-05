@@ -102,4 +102,4 @@ Run Docker Image locally
     > docker run --rm -a STDOUT convertjson:latest
 
 
-    .. |architecture-overview| image:: https://raw.github.com/briglx/provision_analytics_workspaces/master/docs/Architecture.png
+    .. |architecture-overview| image:: https://raw.github.com/briglx/AzureConvertJson/main/docs/JsonConvertArchitecture.png
