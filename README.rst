@@ -80,6 +80,10 @@ Setup your dev environment by creating a virtual environment
 
 Make a copy of local-example.env and rename to local.env. Edit the file with the necessary values.
 
+ - The `EVENT_HUB_CONNECTION_STRING` is in the format `Endpoint=sb://<yournamespace>.servicebus.windows.net/;SharedAccessKeyName=<yoursharedaccesskeyname>;SharedAccessKey=<yoursharedaccesskey>`
+ - The `EVENT_HUB_NAME` is the name of your eventhub.
+ - The `TEMPLATE_PATH` is the path to your message template file `/path/to/templates/`
+
 Style Guidelines
 ----------------
 
