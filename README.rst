@@ -132,7 +132,7 @@ You'll need to install the test dependencies into your Python environment:
 
     pip3 install -r requirements_dev.txt
 
-Now that you have all test dependencies installed, you can run tests on the project:
+Now that you have all test dependencies installed, you can run linting and tests on the project:
 
 .. code-block:: bash
 
@@ -142,6 +142,7 @@ Now that you have all test dependencies installed, you can run tests on the proj
     flake8 setup.py script tests
     pylint setup.py script tests
     pydocstyle setup.py script tests
+    pytest tests
 
 Build Docker Images
 -------------------

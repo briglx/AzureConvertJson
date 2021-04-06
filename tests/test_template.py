@@ -15,7 +15,8 @@ def test_simple_template():
     """Test simple template."""
 
     path = "tests/simple_template.txt"
-    message = main.create_message(path, TEST_DATA)
+    template = main.get_template_string(path)
+    message = template.substitute(TEST_DATA)
 
     assert message == "m_rid=3bd56d4a8acb43f6a748231d534710e1"
 
@@ -24,7 +25,8 @@ def test_multiline_template():
     """Test multiline template."""
 
     path = "tests/multiline_template.txt"
-    message = main.create_message(path, TEST_DATA)
+    template = main.get_template_string(path)
+    message = template.substitute(TEST_DATA)
 
     assert (
         message
