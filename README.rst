@@ -31,20 +31,39 @@ This setup will deploy the core infrastructure needed to run the the solution:
 Core infrastructure
 -------------------
 
+**Global Variables**
+
+Configure the global variables
+
+.. code-block:: bash
+
+    RG_NAME = jsonconvert
+    RG_REGION = westus
+    EH_NAMESPACE = jsconvonvert_ehn
+    EH_NAME = jsonconvert_eh
+
+
+
 **Resource Group**
 
 Create a resource group for this project
 
 .. code-block:: bash
 
-    az group create --name jsonconvert --location westus
+    az group create --name $RG_NAME --location $RG_REGION
 
 **Evenhubs**
 
 .. code-block:: bash
 
-    # TBD
+    # Create an Event Hubs namespace. Specify a name for the Event Hubs namespace.
+    az eventhubs namespace create --name $EH_NAMESPACE --resource-group $RG_NAME -l $RG_REGION   
 
+    # Create an event hub. Specify a name for the event hub. 
+    az eventhubs eventhub create --name $EH_NAME --resource-group $RG_NAME --namespace-name $EH_NAMESPACE
+
+    # Create Read Policy and Connection string
+    #TBD 
 
 Development
 ===========
@@ -58,6 +77,8 @@ Setup your dev environment by creating a virtual environment
     .venv\scripts\activate
 
     deactivate
+
+Make a copy of local-example.env and rename to local.env. Edit the file with the necessary values.
 
 Style Guidelines
 ----------------
@@ -147,4 +168,4 @@ Run Docker Image locally
 References
 ----------
 - Eventhubs python library https://docs.microsoft.com/en-us/python/api/overview/azure/eventhub-readme?view=azure-python
-   
+- Eventhubs python getting started https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-python-get-started-send
