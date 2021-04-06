@@ -1,0 +1,64 @@
+{
+    "result": [
+      {
+        "MyEnergyData_MarketDocument": {
+          "mRID": "$m_rid",
+          "createdDateTime": "$create_datetime",
+          "sender_MarketParticipant.name": "",
+          "sender_MarketParticipant.mRID": {
+            "codingScheme": null,
+            "name": null
+          },
+          "period.timeInterval": {
+            "start": "$period_start_time",
+            "end": "$period_end_time"
+          },
+          "TimeSeries": [
+            {
+              "mRID": "$m_rid",
+              "businessType": "A04",
+              "curveType": "A01",
+              "measurement_Unit.name": "KWH",
+              "MarketEvaluationPoint": {
+                "mRID": {
+                  "codingScheme": "A10",
+                  "name": "571313115101547814"
+                }
+              },
+              "Period": [
+                {
+                  "resolution": "PT1D",
+                  "timeInterval": {
+                    "start": "2019-07-23T22:00:00Z",
+                    "end": "2019-07-24T22:00:00Z"
+                  },
+                  "Point": [
+                    {
+                      "position": "1",
+                      "out_Quantity.quantity": "25.93",
+                      "out_Quantity.quality": "A04"
+                    }
+                  ]
+                },
+                {
+                  "resolution": "PT1D",
+                  "timeInterval": {
+                    "start": "2019-07-24T22:00:00Z",
+                    "end": "2019-07-25T22:00:00Z"
+                  },
+                  "Point": [
+                    {
+                      "position": "1",
+                      "out_Quantity.quantity": "32.152",
+                      "out_Quantity.quality": "A04"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+  

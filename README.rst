@@ -138,10 +138,10 @@ Now that you have all test dependencies installed, you can run tests on the proj
 
     isort .
     codespell  --skip="./.*,*.csv,*.json,*.pyc,./docs/_build/*,./htmlcov/*"
-    black script
-    flake8 script
-    pylint script
-    pydocstyle script
+    black setup.py script tests
+    flake8 setup.py script tests
+    pylint setup.py script tests
+    pydocstyle setup.py script tests
 
 Build Docker Images
 -------------------

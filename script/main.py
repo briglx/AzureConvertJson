@@ -3,9 +3,18 @@
 import asyncio
 import logging
 import os
+from string import Template
 
 from azure.eventhub import EventData
 from azure.eventhub.aio import EventHubProducerClient
+
+
+def create_message(path, data):
+    """Create message from template."""
+    with open(path, "r") as template_file:
+        src = Template(template_file.read())
+        result = src.substitute(data)
+        return result
 
 
 async def run():
