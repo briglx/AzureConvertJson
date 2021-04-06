@@ -152,15 +152,17 @@ Run Docker Image locally
 
 .. code-block:: bash
 
-    > docker build --pull --rm -f "dockerfile" -t convertjson:latest "."
-    > docker run --rm -it convertjson:latest
+    > docker build --pull --rm -f "dockerfile" -t jsonconvert:latest "."
+    > docker run --rm -it jsonconvert:latest
 
     # Run interactive with environment variables
-    > docker run --rm -it --env-file local.env convertjson:latest
+    > docker run --rm -it --env-file local.env jsonconvert:latest
 
     #If you want to see STDOUT use 
-    > docker run --rm -a STDOUT convertjson:latest
+    > docker run --rm -a STDOUT jsonconvert:latest
 
+    #Run app
+    > python script/main.py --template_path /path/to/templates/
 
 .. |architecture-overview| image:: docs/JsonConvertArchitecture.png
 

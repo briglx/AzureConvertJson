@@ -13,7 +13,8 @@ WORKDIR /app
 # instruction to be run during image build
 RUN pip install -r requirements.txt
 
-COPY script/*.py .
+COPY script/*.py script/
+COPY docs/*.txt docs/
 
 ENTRYPOINT [ "/bin/bash" ]
 # ENTRYPOINT ["/usr/local/bin/python", "/app/main.py"]
