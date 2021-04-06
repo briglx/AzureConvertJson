@@ -14,7 +14,7 @@ TEST_DATA = {
 def test_simple_template():
     """Test simple template."""
 
-    path = "tests/simple_template.txt"
+    path = "tests/string_template/simple_template.txt"
     template = main.get_template_string(path)
     message = template.substitute(TEST_DATA)
 
@@ -24,7 +24,7 @@ def test_simple_template():
 def test_multiline_template():
     """Test multiline template."""
 
-    path = "tests/multiline_template.txt"
+    path = "tests/string_template/multiline_template.txt"
     template = main.get_template_string(path)
     message = template.substitute(TEST_DATA)
 
