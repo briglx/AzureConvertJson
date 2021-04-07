@@ -6,17 +6,15 @@ from jinja2 import Environment, FileSystemLoader
 
 def load_data(filename):
     """Load source file."""
-    source_path = os.path.join("tests", "jinja_template", filename)
-    with open(source_path, "r") as myfile:
+    with open(filename, "r") as myfile:
         text = myfile.read()
     data = json.loads(text)
     return data
 
 
-def save_data(data):
+def save_data(data, filename):
     """Save data to json file."""
-    save_path = os.path.join("tests", "jinja_template", "rendered.json")
-    with open(save_path, "w") as json_file:
+    with open(filename, "w") as json_file:
         json.dump(data, json_file, indent=2, separators=(",", ": "))
 
 
