@@ -132,3 +132,5 @@ local.env
 .vscode/extensions.json
 .vscode/launch.json
 .vscode/tasks.json
+generator/JsonGenerator/data/order_data.csv
+generator/JsonGenerator/data/generator/.rvmrc

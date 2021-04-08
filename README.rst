@@ -142,10 +142,10 @@ Now that you have all test dependencies installed, you can run linting and tests
 
     isort .
     codespell  --skip="./.*,*.csv,*.json,*.pyc,./docs/_build/*,./htmlcov/*"
-    black setup.py script tests
-    flake8 setup.py script tests
-    pylint setup.py script tests
-    pydocstyle setup.py script tests
+    black setup.py generator tests
+    flake8 setup.py generator tests
+    pylint setup.py generator tests
+    pydocstyle setup.py generator tests
     pytest tests
 
 Build Docker Images
@@ -167,7 +167,7 @@ Run Docker Image locally
     > docker run --rm -a STDOUT jsonconvert:latest
 
     #Run app
-    > python script/main.py --template_path /path/to/templates/
+    > python generator/python_generator/main.py --template_path /path/to/templates/
 
 .. |architecture-overview| image:: docs/JsonConvertArchitecture.png
 

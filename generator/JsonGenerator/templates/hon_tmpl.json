@@ -1,0 +1,64 @@
+{
+    "result": [
+      {
+        "MyEnergyData_MarketDocument": {
+          "mRID": "{{mRID}}",
+          "createdDateTime": "{{createdDateTime}}",
+          "sender_MarketParticipant.name": "",
+          "sender_MarketParticipant.mRID": {
+            "codingScheme": null,
+            "name": null
+          },
+          "period.timeInterval": {
+            "start": "{{start}}",
+            "end": "{{end}}"
+          },
+          "TimeSeries": [
+            {
+              "mRID": "{{mRID}}",
+              "businessType": "{{businessType}}",
+              "curveType": "{{curveType}}",
+              "measurement_Unit.name": "{{measurement_Unit_name}}",
+              "MarketEvaluationPoint": {
+                "mRID": {
+                  "codingScheme": "{{codingScheme}}",
+                  "name": "{{name}}"
+                }
+              },
+              "Period": [
+                {
+                  "resolution": "{{resolution}}",
+                  "timeInterval": {
+                    "start": "{{start}}",
+                    "end": "{{end}}"
+                  },
+                  "Point": [
+                    {
+                      "position": "1",
+                      "out_Quantity.quantity": "{{out_Quantity_quantity}}",
+                      "out_Quantity.quality": "{{out_Quantity_quality}}"
+                    }
+                  ]
+                },
+                {
+                  "resolution": "{{resolution}}",
+                  "timeInterval": {
+                    "start": "{{start}}",
+                    "end": "{{end}}"
+                  },
+                  "Point": [
+                    {
+                      "position": "1",
+                      "out_Quantity.quantity": "{{out_Quantity_quantity}}",
+                      "out_Quantity.quality": "{{out_Quantity_quality}}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+  

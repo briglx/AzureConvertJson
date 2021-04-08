@@ -1,0 +1,39 @@
+{
+  "order": {
+    "orderTime": "{{orderTime}}",
+    "header": {
+      "referringId": {{ referringId }},
+      "partnerOrderId": "{{partnerOrderId}}",
+      "clientId": "{{ clientId }}",
+      "subclientId": "{{ subclientId }}",
+ 
+      "State": "CREATED"
+    },
+    "shipmentList": [{
+      "partnerShipmentId": {{ partnerShipmentId }},
+      "mkpPartnerId": "{{ mkpPartnerId }}",
+      "shippingContact": {
+        "name": {
+          "firstName": "{{ firstName }}",
+          "lastName": "{{ lastName }}"
+        },
+        "address": {
+          "line1": "{{ line1 }}",
+          "city": "{{ city }}",
+          "state": "{{ state }}",
+          "zipCode": "{{ zipCode }}",
+          "country": "{{ country }}"
+        }
+      },
+      "lineItemList": [{
+        "partnerLineId": {{ partnerLineId }},
+        "upc": {{ upc }},
+        "quantity": {{ quantity }},
+        "unitPrice": {
+          "price": {{ price }},
+          "currencyName": "{{ currencyName }}"
+        }
+      }]
+    }]
+  }
+}

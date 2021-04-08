@@ -1,10 +1,11 @@
 """Test jinja templates."""
 import os
-import pytest 
 
-from script import template
+import pytest
 
-TEST_ROOT = "tests"
+from generator.python_generator import template
+
+TEST_ROOT = "tests/generator"
 TEST_FILE_PATH = os.path.join(TEST_ROOT, "jinja_template")
 TEMPLATE_PATH = "docs"
 
@@ -36,7 +37,7 @@ def test_create_from_message():
                 "start_interval": "2021-04-06T19:02:22Z",
                 "end_interval": "2021-04-06T19:02:23Z",
                 "value": 39.8,
-                "quality": "A04"
+                "quality": "A04",
             }
         ],
     }
@@ -82,7 +83,7 @@ def test_create_from_message_with_filter():
                 "start_interval": "2021-04-06T19:02:22Z",
                 "end_interval": "2021-04-06T19:02:23Z",
                 "value": 39.8,
-                "quality": "A04"
+                "quality": "A04",
             }
         ],
     }
@@ -94,7 +95,12 @@ def test_create_from_message_with_filter():
     assert len(
         message["result"][0]["MyEnergyData_MarketDocument"]["TimeSeries"]
     ) == len(sample_data["values"])
-    assert message["result"][0]["MyEnergyData_MarketDocument"]["TimeSeries"][0]["Period"][0]["Point"][0]["out_Quantity.quality"] == "Good"
+    assert (
+        message["result"][0]["MyEnergyData_MarketDocument"]["TimeSeries"][0]["Period"][
+            0
+        ]["Point"][0]["out_Quantity.quality"]
+        == "Good"
+    )
 
 
 def test_quality_filter():
@@ -102,7 +108,8 @@ def test_quality_filter():
     assert template.convert_quality_filter("A01") == "Poor"
     assert template.convert_quality_filter("A04") == "Good"
 
+
 def test_quality_filter_error():
     """Test quality filter for template."""
     with pytest.raises(ValueError):
-        template.convert_quality_filter("BadValue") 
+        template.convert_quality_filter("BadValue")

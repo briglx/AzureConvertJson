@@ -1,5 +1,5 @@
 """Test templates."""
-from script import main
+from generator.python_generator import main
 
 TEST_DATA = {
     "m_rid": "3bd56d4a8acb43f6a748231d534710e1",
@@ -14,7 +14,7 @@ TEST_DATA = {
 def test_simple_template():
     """Test simple template."""
 
-    path = "tests/string_template/simple_template.txt"
+    path = "tests/generator/string_template/simple_template.txt"
     template = main.get_template_string(path)
     message = template.substitute(TEST_DATA)
 
@@ -24,7 +24,7 @@ def test_simple_template():
 def test_multiline_template():
     """Test multiline template."""
 
-    path = "tests/string_template/multiline_template.txt"
+    path = "tests/generator/string_template/multiline_template.txt"
     template = main.get_template_string(path)
     message = template.substitute(TEST_DATA)
 

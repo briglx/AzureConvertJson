@@ -14,7 +14,7 @@ WORKDIR /app
 RUN pip install -r requirements.txt
 
 COPY setup.py .
-COPY script/*.py script/
+COPY generator/ generator/
 COPY docs/*.json docs/
 
 RUN  python /app/setup.py install 

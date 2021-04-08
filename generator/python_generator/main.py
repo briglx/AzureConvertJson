@@ -13,7 +13,7 @@ from string import Template
 from azure.eventhub import EventData
 from azure.eventhub.aio import EventHubProducerClient
 
-from script import template
+from generator.python_generator import template
 
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
@@ -22,9 +22,10 @@ def generate_id():
     """Generate Hexadecimal 32 length id."""
     return "%032x" % random.randrange(16 ** 32)
 
+
 def generate_quality():
     """Generate Quality Code."""
-    quality_codes = ["A01", "A02","A03", "A04"]
+    quality_codes = ["A01", "A02", "A03", "A04"]
     return random.choice(quality_codes)
 
 
