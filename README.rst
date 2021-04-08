@@ -65,6 +65,36 @@ Create a resource group for this project
     # Create Read Policy and Connection string
     #TBD 
 
+**Generator**
+
+The generator is a python application that runs in a docker container. The container expects the following environment variables stored in a `local.env` file.
+
+Make a copy of `local-example.env` and rename to `local.env`. Edit the file with the necessary values.
+
+- The `EVENT_HUB_CONNECTION_STRING` is in the format `Endpoint=sb://<yournamespace>.servicebus.windows.net/;SharedAccessKeyName=<yoursharedaccesskeyname>;SharedAccessKey=<yoursharedaccesskey>`
+- The `EVENT_HUB_NAME` is the name of your eventhub.
+- The `TEMPLATE_PATH` is the path to your message template file `/path/to/templates/`
+
+Run generator in docker
+
+.. code-block:: bash
+
+    # Build and run image
+    > docker build --pull --rm -f "dockerfile" -t jsonconvert:latest "."
+    > docker run --rm -it --env-file local.env jsonconvert:latest
+
+    #Run app
+    > python generator/python_generator/main.py --template_path /path/to/templates/
+
+.. code-block:: bash
+
+    # Build and Run Docker
+    > docker build --pull --rm -f "dockerfile" -t jsonconvert:latest "."
+    > docker run --rm -it --env-file local.env jsonconvert:latest
+
+    #Run app
+    > python generator/python_generator/main.py --template_path /path/to/templates/
+
 Development
 ===========
 
@@ -147,27 +177,6 @@ Now that you have all test dependencies installed, you can run linting and tests
     pylint setup.py generator tests
     pydocstyle setup.py generator tests
     pytest tests
-
-Build Docker Images
--------------------
-
-Build and run your image.
-
-Run Docker Image locally
-
-.. code-block:: bash
-
-    > docker build --pull --rm -f "dockerfile" -t jsonconvert:latest "."
-    > docker run --rm -it jsonconvert:latest
-
-    # Run interactive with environment variables
-    > docker run --rm -it --env-file local.env jsonconvert:latest
-
-    #If you want to see STDOUT use 
-    > docker run --rm -a STDOUT jsonconvert:latest
-
-    #Run app
-    > python generator/python_generator/main.py --template_path /path/to/templates/
 
 .. |architecture-overview| image:: docs/JsonConvertArchitecture.png
 
