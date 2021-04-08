@@ -65,7 +65,8 @@ Create a resource group for this project
     # Create Read Policy and Connection string
     #TBD 
 
-**Generator**
+Generator
+---------
 
 The generator is a python application that runs in a docker container. The container expects the following environment variables stored in a `local.env` file.
 
