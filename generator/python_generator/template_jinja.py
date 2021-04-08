@@ -23,7 +23,7 @@ def render(data, template_path, template_name, filters=None):
     # Load Environment
     loader = FileSystemLoader(template_path)
     env = Environment(loader=loader)
-    env.filters['convert'] = convert_quality_filter
+    env.filters["convert"] = convert_quality_filter
 
     # Register Filter
     if filters:
@@ -54,6 +54,7 @@ def render_json(data, template_path, template_name, filters=None):
     return json.dumps(result_dict)
 
 
+<<<<<<< HEAD:generator/python_generator/template_jinja.py
 # def convert_quality_filter(quality):
 #     """Jinja2 Filter to convert quality score."""
 #     quality_map = {
@@ -67,3 +68,18 @@ def render_json(data, template_path, template_name, filters=None):
 #         raise ValueError("The quality is not a valid value. It must be A01 - A04")
 
 #     return quality_map[quality]
+=======
+def convert_quality_filter(quality):
+    """Jinja2 Filter to convert quality score."""
+    quality_map = {
+        "A01": "Poor",
+        "A02": "OK",
+        "A03": "Moderate",
+        "A04": "Good",
+    }
+
+    if quality not in quality_map:
+        raise ValueError("The quality is not a valid value. It must be A01 - A04")
+
+    return quality_map[quality]
+>>>>>>> e52778d... Reorganize project. Remove extra files.:generator/python_generator/template.py

@@ -1,7 +1,7 @@
 """Test main functions."""
 from datetime import datetime
 
-from script import main
+from generator.python_generator import main
 
 
 def test_iso_date():
