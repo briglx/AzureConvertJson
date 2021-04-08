@@ -1,8 +1,8 @@
 """Json to Json Conversion using jinja templates."""
 import json
-import os
 
 from jinja2 import Environment, FileSystemLoader
+
 
 def load_data(filename):
     """Load source file."""
@@ -18,8 +18,8 @@ def save_data(data, filename):
         json.dump(data, json_file, indent=2, separators=(",", ": "))
 
 
-def convert_json(data, template_path, template_name="transform.json"):
-    """Convert Json data for a given template."""
+def render(data, template_path, template_name):
+    """Render data as a string for a given template."""
     # Load Environment
     loader = FileSystemLoader(template_path)
     env = Environment(loader=loader)
@@ -30,4 +30,17 @@ def convert_json(data, template_path, template_name="transform.json"):
     # Transform
     result_string = template.render(data)
 
+    return result_string
+
+
+def render_dict(data, template_path, template_name):
+    """Render data as Json Dictionary for a given template."""
+    result_string = render(data, template_path, template_name)
+
     return json.loads(result_string)
+
+
+def render_json(data, template_path, template_name):
+    """Render data as Json for a given template."""
+    result_dict = render_dict(data, template_path, template_name)
+    return json.dumps(result_dict)

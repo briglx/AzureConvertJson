@@ -4,25 +4,67 @@ import argparse
 import asyncio
 import logging
 import os
+import random
 import signal
 import sys
+from datetime import datetime, timedelta, timezone
 from string import Template
 
 from azure.eventhub import EventData
 from azure.eventhub.aio import EventHubProducerClient
 
+from script import template
+
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
+
+
+def generate_id():
+    """Generate Hexadecimal 32 length id."""
+    return "%032x" % random.randrange(16 ** 32)
+
+
+def get_date_now_isoformat():
+    """Generate Iso Formatted Date based on Now."""
+    cur_time = datetime.utcnow()
+    return get_date_isoformat(cur_time)
+
+
+def get_date_isoformat(date):
+    """Format Iso Formatted Date."""
+    cur_time = date.replace(tzinfo=timezone.utc, microsecond=0)
+    return cur_time.isoformat().replace("+00:00", "Z")
 
 
 def create_sample_data():
     """Generate Sample Data."""
+    period_start_time = datetime.utcnow()
+    period_count = random.randint(0, 30)
+    period_end_time = period_start_time + timedelta(0, period_count)
+    max_value = 50
+    start_value = random.uniform(20, max_value)
+    start_dv = random.uniform(-1, 1) * max_value
+
+    values = []
+    cur_value = start_value + start_value * start_dv
+
+    for i in range(period_count):
+        start_interval = period_start_time + timedelta(0, i)
+        end_interval = period_start_time + timedelta(0, i + 1)
+        values.append(
+            {
+                "start_interval": get_date_isoformat(start_interval),
+                "end_interval": get_date_isoformat(end_interval),
+                "cur_value": cur_value,
+            }
+        )
+        cur_value = start_value + start_value * start_dv
+
     return {
-        "m_rid": "3bd56d4a8acb43f6a748231d534710e1",
+        "m_rid": generate_id(),
         "create_datetime": "2020-11-17T06:25:12Z",
-        "period_start_time": "2019-07-23T22:00:00Z",
-        "period_end_time": "2020-09-30T22:00:00",
-        "quantity": 25.93,
-        "quality": "A04",
+        "period_start_time": get_date_isoformat(period_start_time),
+        "period_end_time": get_date_isoformat(period_end_time),
+        "values": values,
     }
 
 
@@ -37,13 +79,13 @@ async def run():
     """Create sample messages."""
     async with PRODUCER:
 
-        # Create a batch.
-        event_data_batch = await PRODUCER.create_batch()
-
         # Loop Forever
         while True:
+            # Create a batch.
+            event_data_batch = await PRODUCER.create_batch()
+
             data = create_sample_data()
-            message = MESSAGE_TEMPLATE.substitute(data)
+            message = template.render_json(data, TEMPLATE_PATH, TEMPLATE_SOURCE_MESSAGE)
 
             # Add event to the batch.
             logging.info("Sending Event %s", message)
@@ -78,6 +120,16 @@ if __name__ == "__main__":
         "-t",
         help="Template Path",
     )
+    parser.add_argument(
+        "--template_source_message",
+        "-ts",
+        help="Template to create the Source Message",
+    )
+    parser.add_argument(
+        "--template_transform",
+        "-tt",
+        help="Template used to Transform messages",
+    )
 
     args = parser.parse_args()
 
@@ -86,6 +138,10 @@ if __name__ == "__main__":
     )
     EVENT_HUB_NAME = args.eventhubs_name or os.environ.get("EVENT_HUB_NAME")
     TEMPLATE_PATH = args.template_path or os.environ.get("TEMPLATE_PATH")
+    TEMPLATE_SOURCE_MESSAGE = args.template_source_message or os.environ.get(
+        "TEMPLATE_SOURCE_MESSAGE"
+    )
+    TEMPLATE_TRANSFORM = args.template_transform or os.environ.get("TEMPLATE_TRANSFORM")
 
     if not CONNECTION_STRING:
         raise ValueError(
@@ -104,6 +160,18 @@ if __name__ == "__main__":
             "Template path is required." "Have you set the TEMPLATE_PATH env variable?"
         )
 
+    if not TEMPLATE_SOURCE_MESSAGE:
+        raise ValueError(
+            "Template source message is required."
+            "Have you set the TEMPLATE_SOURCE_MESSAGE env variable?"
+        )
+
+    if not TEMPLATE_TRANSFORM:
+        raise ValueError(
+            "Template transform is required."
+            "Have you set the TEMPLATE_TRANSFORM env variable?"
+        )
+
     # This restores the default Ctrl+C signal handler, which just kills the process
     signal.signal(signal.SIGINT, signal.SIG_DFL)
 
@@ -112,11 +180,6 @@ if __name__ == "__main__":
     # the event hub name.
     PRODUCER = EventHubProducerClient.from_connection_string(
         conn_str=CONNECTION_STRING, eventhub_name=EVENT_HUB_NAME
-    )
-
-    # Get template string
-    MESSAGE_TEMPLATE = get_template_string(
-        os.path.join(TEMPLATE_PATH, "from_template.txt")
     )
 
     # Start Message Generator
