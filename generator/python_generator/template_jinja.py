@@ -23,6 +23,7 @@ def render(data, template_path, template_name, filters=None):
     # Load Environment
     loader = FileSystemLoader(template_path)
     env = Environment(loader=loader)
+    env.filters['convert'] = convert_quality_filter
 
     # Register Filter
     if filters:

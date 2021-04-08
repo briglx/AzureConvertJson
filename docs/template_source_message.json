@@ -50,8 +50,8 @@
                   "Point": [
                     {
                       "position": "1",
-                      "out_Quantity.quantity": "{{item.cur_value}}",
-                      "out_Quantity.quality": "A04"
+                      "out_Quantity.quantity": "{{item.value}}",
+                      "out_Quantity.quality": "{{item.quality | convert}}"
                     }
                   ]
                 }
