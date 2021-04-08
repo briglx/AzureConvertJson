@@ -1,5 +1,6 @@
 """Test jinja templates."""
 import os
+import pytest 
 
 from script import template
 
@@ -34,7 +35,8 @@ def test_create_from_message():
             {
                 "start_interval": "2021-04-06T19:02:22Z",
                 "end_interval": "2021-04-06T19:02:23Z",
-                "cur_value": 39.8,
+                "value": 39.8,
+                "quality": "A04"
             }
         ],
     }
@@ -66,3 +68,41 @@ def test_create_from_message():
     assert len(
         message["result"][0]["MyEnergyData_MarketDocument"]["TimeSeries"]
     ) == len(sample_data["values"])
+
+
+def test_create_from_message_with_filter():
+    """Test generating the from message from test data."""
+    sample_data = {
+        "m_rid": "232b010507bcb07c33ba27a6f636f64c",
+        "create_datetime": "2020-11-18T06:25:12Z",
+        "period_start_time": "2021-04-06T19:02:22Z",
+        "period_end_time": "2021-04-06T19:02:47Z",
+        "values": [
+            {
+                "start_interval": "2021-04-06T19:02:22Z",
+                "end_interval": "2021-04-06T19:02:23Z",
+                "value": 39.8,
+                "quality": "A04"
+            }
+        ],
+    }
+
+    template_name = "template_source_message.json"
+    message = template.render_dict(sample_data, TEMPLATE_PATH, template_name)
+
+    assert isinstance(message, dict)
+    assert len(
+        message["result"][0]["MyEnergyData_MarketDocument"]["TimeSeries"]
+    ) == len(sample_data["values"])
+    assert message["result"][0]["MyEnergyData_MarketDocument"]["TimeSeries"][0]["Period"][0]["Point"][0]["out_Quantity.quality"] == "Good"
+
+
+def test_quality_filter():
+    """Test quality filter for template."""
+    assert template.convert_quality_filter("A01") == "Poor"
+    assert template.convert_quality_filter("A04") == "Good"
+
+def test_quality_filter_error():
+    """Test quality filter for template."""
+    with pytest.raises(ValueError):
+        template.convert_quality_filter("BadValue") 

@@ -22,6 +22,11 @@ def generate_id():
     """Generate Hexadecimal 32 length id."""
     return "%032x" % random.randrange(16 ** 32)
 
+def generate_quality():
+    """Generate Quality Code."""
+    quality_codes = ["A01", "A02","A03", "A04"]
+    return random.choice(quality_codes)
+
 
 def get_date_now_isoformat():
     """Generate Iso Formatted Date based on Now."""
@@ -42,11 +47,11 @@ def create_sample_data():
     period_end_time = period_start_time + timedelta(0, period_count)
     max_value = 50
     start_value = random.uniform(20, max_value)
-    start_dv = random.uniform(-1, 1) * max_value
+    delta_value = random.uniform(-1, 1) * max_value
+    quality = generate_quality()
 
     values = []
-    cur_value = start_value + start_value * start_dv
-
+    cur_value = start_value
     for i in range(period_count):
         start_interval = period_start_time + timedelta(0, i)
         end_interval = period_start_time + timedelta(0, i + 1)
@@ -54,10 +59,11 @@ def create_sample_data():
             {
                 "start_interval": get_date_isoformat(start_interval),
                 "end_interval": get_date_isoformat(end_interval),
-                "cur_value": cur_value,
+                "value": cur_value,
+                "quality": quality,
             }
         )
-        cur_value = start_value + start_value * start_dv
+        cur_value = cur_value + delta_value
 
     return {
         "m_rid": generate_id(),
