@@ -65,6 +65,13 @@ Create a resource group for this project
     # Create Read Policy and Connection string
     #TBD 
 
+**Logic App**
+
+- Create Logic App
+- Create Integration Account
+- Add Map to Integraton Account
+
+
 Generator
 ---------
 
@@ -187,3 +194,5 @@ References
 - Eventhubs python library https://docs.microsoft.com/en-us/python/api/overview/azure/eventhub-readme?view=azure-python
 - Eventhubs python getting started https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-python-get-started-send
 - Liquid template https://shopify.github.io/liquid/basics/introduction/
+- Liquid in Logic App https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-enterprise-integration-liquid-transform
+- Create Logic App Integration Account https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-enterprise-integration-create-integration-account?tabs=azure-portal
