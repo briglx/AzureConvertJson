@@ -1,22 +1,15 @@
 """Test templates."""
 from generator.python_generator import template_string
-<<<<<<< HEAD
 from tests import SAMPLE_DATA, TEST_RESOURCE_PATH
 
-=======
 from tests import SAMPLE_DATA, TEMPLATE_PATH, TEST_RESOURCE_PATH
->>>>>>> faf9031... Reorg Tests. Add liquid.
 
 def test_simple_template():
     """Test simple template."""
 
     template_name = "simple_template.txt"
     message = template_string.render(SAMPLE_DATA, TEST_RESOURCE_PATH, template_name)
-<<<<<<< HEAD
-
-=======
     
->>>>>>> faf9031... Reorg Tests. Add liquid.
     assert message == "m_rid=232b010507bcb07c33ba27a6f636f64c"
 
 
