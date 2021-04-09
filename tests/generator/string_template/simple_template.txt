@@ -1,1 +1,0 @@
-m_rid=$m_rid
