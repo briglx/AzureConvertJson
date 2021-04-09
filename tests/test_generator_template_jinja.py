@@ -1,10 +1,9 @@
 """Test jinja templates."""
-import os
-
 import pytest
 
 from generator.python_generator import template
-from tests import SAMPLE_DATA, TEST_ROOT, TEST_RESOURCE_PATH, TEMPLATE_PATH, SOURCE_FILE
+from tests import SAMPLE_DATA, SOURCE_FILE, TEMPLATE_PATH
+
 
 def test_transform_from_to_data():
     """Test Transforming source to target"""

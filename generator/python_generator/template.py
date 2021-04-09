@@ -1,4 +1,4 @@
-"""Json to Json Conversion using jinja templates."""
+"""Template with jinja2 engine."""
 import json
 
 from jinja2 import Environment, FileSystemLoader

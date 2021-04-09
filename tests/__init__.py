@@ -1,5 +1,6 @@
 """Tests for Generators."""
 import os
+
 SAMPLE_DATA = {
     "m_rid": "232b010507bcb07c33ba27a6f636f64c",
     "create_datetime": "2020-11-18T06:25:12Z",

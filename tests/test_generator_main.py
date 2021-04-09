@@ -11,6 +11,7 @@ def test_iso_date():
     iso_date = main.get_date_isoformat(test_date)
     assert iso_date == "2021-01-01T05:30:00Z"
 
+
 def test_generate_id():
     """Test generate id."""
 

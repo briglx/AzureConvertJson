@@ -7,6 +7,7 @@ import os
 import random
 import signal
 import sys
+import uuid
 from datetime import datetime, timedelta, timezone
 from string import Template
 
@@ -16,6 +17,11 @@ from azure.eventhub.aio import EventHubProducerClient
 from generator.python_generator import template
 
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
+
+
+def generate_guid():
+    """Generate a UUID string."""
+    return str(uuid.uuid4())
 
 
 def generate_id():
@@ -69,6 +75,7 @@ def create_sample_data():
     return {
         "m_rid": generate_id(),
         "create_datetime": "2020-11-17T06:25:12Z",
+        "SystemGuid": generate_guid(),
         "period_start_time": get_date_isoformat(period_start_time),
         "period_end_time": get_date_isoformat(period_end_time),
         "values": values,
