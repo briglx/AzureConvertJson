@@ -84,7 +84,7 @@ def create_sample_data():
         "SystemGuid": generate_guid(),
         "period_start_time": get_date_isoformat(period_start_time),
         "period_end_time": get_date_isoformat(period_end_time),
-        "values": values,
+        "values": values
     }
 
     return sample_data
