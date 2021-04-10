@@ -72,14 +72,16 @@ def create_sample_data():
         )
         cur_value = cur_value + delta_value
 
-    return {
+    sample_data = {
         "m_rid": generate_id(),
-        "create_datetime": "2020-11-17T06:25:12Z",
+        "create_datetime": get_date_isoformat(period_start_time),
         "SystemGuid": generate_guid(),
         "period_start_time": get_date_isoformat(period_start_time),
         "period_end_time": get_date_isoformat(period_end_time),
-        "values": values,
+        "values": values
     }
+
+    return sample_data
 
 
 def get_template_string(path):
