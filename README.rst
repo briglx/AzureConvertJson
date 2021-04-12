@@ -285,13 +285,13 @@ This project shows three different ways to transform Json to Json documents from
 +------------------------------+-------------------------+-----------------+--------------------+
 | Feature                      | Liquid Transform Action | Azure Function  | Container Instance |
 +==============================+=========================+=================+====================+
-| Use Liquid Template Language | ✅                       | ✅               | ✅                  |
+| Use Liquid Template Language | ✅                       | ✅               | ✅              |
 +------------------------------+-------------------------+-----------------+--------------------+
-| Use Jinja Template Language  |                         | ✅               | ✅                  |
+| Use Jinja Template Language  | ❌                       | ✅               | ✅              |
 +------------------------------+-------------------------+-----------------+--------------------+
-| Use Custom Filters           |                         | ✅               | ✅                  |
+| Use Custom Filters           | ❌                       | ✅               | ✅              |
 +------------------------------+-------------------------+-----------------+--------------------+
-| Need Integration Account     | ✅                       |                 |                    |
+| Need Integration Account     | ✅                       | ❌               | ❌              |
 +------------------------------+-------------------------+-----------------+--------------------+
 
 ✅ 
