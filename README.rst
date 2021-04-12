@@ -274,6 +274,29 @@ Start container
         --environment-variables 'TEMPLATE_PATH=/app/' 'TEMPLATE_NAME=template_transform.liquid.fx.json'
         --port 8080 --ip-address public --dns-name-label jsonconvert
 
+Transform
+---------
+This project shows three different ways to transform Json to Json documents from a Logic App:
+
+- Liquid Transform Action
+- Call Azure Function
+- Call Container Instance
+
++------------------------------+-------------------------+-----------------+--------------------+
+| Feature                      | Liquid Transform Action | Azure Function  | Container Instance |
++==============================+=========================+=================+====================+
+| Use Liquid Template Language | ✅                       | ✅               | ✅                  |
++------------------------------+-------------------------+-----------------+--------------------+
+| Use Jinja Template Language  |                         | ✅               | ✅                  |
++------------------------------+-------------------------+-----------------+--------------------+
+| Use Custom Filters           |                         | ✅               | ✅                  |
++------------------------------+-------------------------+-----------------+--------------------+
+| Need Integration Account     | ✅                       |                 |                    |
++------------------------------+-------------------------+-----------------+--------------------+
+
+✅ 
+❌
+
 Development
 ===========
 
