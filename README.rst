@@ -103,6 +103,29 @@ Run generator in docker
     #Run app
     > python generator/python_generator/main.py --template_path /path/to/templates/
 
+Transform
+---------
+This project shows three different ways to transform Json to Json documents from a Logic App:
+
+- Liquid Transform Action
+- Call Azure Function
+- Call Container Instance
+
++------------------------------+-------------------------+-----------------+--------------------+
+| Feature                      | Liquid Transform Action | Azure Function  | Container Instance |
++==============================+=========================+=================+====================+
+| Use Liquid Template Language | ✅                       | ✅               | ✅                  |
++------------------------------+-------------------------+-----------------+--------------------+
+| Use Jinja Template Language  |                         | ✅               | ✅                  |
++------------------------------+-------------------------+-----------------+--------------------+
+| Use Custom Filters           |                         | ✅               | ✅                  |
++------------------------------+-------------------------+-----------------+--------------------+
+| Need Integration Account     | ✅                       |                 |                    |
++------------------------------+-------------------------+-----------------+--------------------+
+
+✅ 
+❌
+
 Development
 ===========
 
@@ -196,3 +219,4 @@ References
 - Liquid template https://shopify.github.io/liquid/basics/introduction/
 - Liquid in Logic App https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-enterprise-integration-liquid-transform
 - Create Logic App Integration Account https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-enterprise-integration-create-integration-account?tabs=azure-portal
+- Azure Fuctions on Docker https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-linux-custom-image?tabs=bash%2Cportal&pivots=programming-language-python
