@@ -294,16 +294,39 @@ This project shows three different ways to transform Json to Json documents from
 | Need Integration Account     | ✅                       | ❌               | ❌                  |
 +------------------------------+-------------------------+-----------------+--------------------+
 
-============================   =======================  ==============  ==================
-Feature                        Liquid Transform Action  Azure Function  Container Instance 
-----------------------------   -----------------------  --------------  ------------------
-Use Liquid Template Language   ✅                        ✅               ✅
-Use Jinja Template Language    X                        ✅               ✅ 
-Use Custom Filters             X                        ✅               ✅ 
-Need Integration Account       ✅                        X               X  
-============================   =======================  ==============  ==================
-✅ 
-❌
+**Liquid Transform Action Option**
+
+* Create an integration account
+* Upload the file `/docs/template_transform.liquid.json` as a Map
+* Add the step to the logic app
+
+**Azure Function Option**
+
+* Publish the transform code as a function
+* Add the step to the logic app
+
+Run function locally
+
+.. code-block:: bash
+
+    # Build and Run Docker
+    > cd /project_root/transform/TransformJsonToJason
+    > docker build --pull --rm -f "dockerfile" -t jsontransform:latest "."
+    > docker run --rm -it -p 8080:80 --env-file local.env jsontransform:latest
+
+    #Run app
+    > /azure-functions-host/Microsoft.Azure.WebJobs.Script.WebHost
+
+
+**Container Instance Option**
+
+* Create Container registry
+* Create Container Instance Group
+* Create Service Principal with Access
+* Build `transform_dockerfile` 
+* Publish image
+* Add the step to the logic app
+
 
 Development
 ===========

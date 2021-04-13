@@ -15,7 +15,6 @@ SAMPLE_DATA = {
         }
     ],
 }
-
 TEMPLATE_PATH = "docs"
 TEST_ROOT = "tests"
 TEST_RESOURCE_PATH = os.path.join(TEST_ROOT, "resources")

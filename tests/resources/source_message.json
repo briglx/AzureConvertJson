@@ -1,6 +1,7 @@
 {
     "result": [
     {
+<<<<<<< HEAD
 <<<<<<< HEAD:tests/resources/source_message.json
         "MyEnergyData_MarketDocument": {
         "mRID": "4bd56d4a8acb43f6a748231d534710e1",
@@ -8,6 +9,10 @@
       "MyEnergyData_MarketDocument": {
         "mRID": "232b010507bcb07c33ba27a6f636f64c",
 >>>>>>> e52778d... Reorganize project. Remove extra files.:tests/generator/jinja_template/render.json
+=======
+        "MyEnergyData_MarketDocument": {
+        "mRID": "4bd56d4a8acb43f6a748231d534710e1",
+>>>>>>> 242cd5b... Add Azure Function. Reorg files.
         "createdDateTime": "2020-11-17T06:25:12Z",
         "sender_MarketParticipant.name": "",
         "sender_MarketParticipant.mRID": {
@@ -15,13 +20,17 @@
             "name": null
         },
         "period.timeInterval": {
+<<<<<<< HEAD
 <<<<<<< HEAD:tests/resources/source_message.json
+=======
+>>>>>>> 242cd5b... Add Azure Function. Reorg files.
             "start": "2019-07-23T22:00:00Z",
             "end": "2020-09-30T22:00:00Z"
         },
         "TimeSeries": [
             {
             "mRID": "571313115101547814",
+<<<<<<< HEAD
 =======
           "start": "2021-04-07T19:02:22Z",
           "end": "2021-04-07T19:02:47Z"
@@ -30,6 +39,8 @@
           {
             "mRID": "232b010507bcb07c33ba27a6f636f64c",
 >>>>>>> e52778d... Reorganize project. Remove extra files.:tests/generator/jinja_template/render.json
+=======
+>>>>>>> 242cd5b... Add Azure Function. Reorg files.
             "businessType": "A04",
             "curveType": "A01",
             "measurement_Unit.name": "KWH",
@@ -43,6 +54,7 @@
                 {
                 "resolution": "PT1D",
                 "timeInterval": {
+<<<<<<< HEAD
 <<<<<<< HEAD:tests/resources/source_message.json
                     "start": "2019-07-23T22:00:00Z",
                     "end": "2019-07-24T22:00:00Z"
@@ -50,11 +62,18 @@
                   "start": "2021-04-07T19:02:22Z",
                   "end": "2021-04-07T19:02:23Z"
 >>>>>>> e52778d... Reorganize project. Remove extra files.:tests/generator/jinja_template/render.json
+=======
+                    "start": "2019-07-23T22:00:00Z",
+                    "end": "2019-07-24T22:00:00Z"
+>>>>>>> 242cd5b... Add Azure Function. Reorg files.
                 },
                 "Point": [
                     {
                     "position": "1",
+<<<<<<< HEAD
 <<<<<<< HEAD:tests/resources/source_message.json
+=======
+>>>>>>> 242cd5b... Add Azure Function. Reorg files.
                     "out_Quantity.quantity": "25.93",
                     "out_Quantity.quality": "A04"
                     }
@@ -70,9 +89,12 @@
                     {
                     "position": "1",
                     "out_Quantity.quantity": "32.152",
+<<<<<<< HEAD
 =======
                     "out_Quantity.quantity": "38.8",
 >>>>>>> e52778d... Reorganize project. Remove extra files.:tests/generator/jinja_template/render.json
+=======
+>>>>>>> 242cd5b... Add Azure Function. Reorg files.
                     "out_Quantity.quality": "A04"
                     }
                 ]
@@ -82,9 +104,13 @@
         ]
         }
     }
+<<<<<<< HEAD
 <<<<<<< HEAD:tests/resources/source_message.json
     ]
 =======
   ]
 >>>>>>> e52778d... Reorganize project. Remove extra files.:tests/generator/jinja_template/render.json
+=======
+    ]
+>>>>>>> 242cd5b... Add Azure Function. Reorg files.
 }

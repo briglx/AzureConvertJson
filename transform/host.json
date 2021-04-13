@@ -1,9 +1,17 @@
 {
   "version": "2.0",
   "logging": {
+<<<<<<< HEAD
     "fileLoggingMode": "always",
     "logLevel": {
       "default": "Information"
+=======
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      }
+>>>>>>> 242cd5b... Add Azure Function. Reorg files.
     }
   },
   "extensionBundle": {

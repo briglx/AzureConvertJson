@@ -4,27 +4,12 @@ from tests import SAMPLE_DATA, TEMPLATE_PATH
 import os
 import pytest
 
-from generator.python_generator import template
-from tests import SAMPLE_DATA, SOURCE_FILE, TEMPLATE_PATH
 
 
-def test_transform_from_to_data():
-    """Test Transforming source to target"""
-    # Load source data
-    data = template.load_data(SOURCE_FILE)
+def test_create_source_message():
+    """Test generating the source message from test data."""
 
-    template_name = "template_transform.jinja.json"
-    message = template.render_dict(data, TEMPLATE_PATH, template_name)
-
-    assert isinstance(message, dict)
-    assert message["CreatedTime"] == "2020-11-17T06:25:12Z"
-    assert message["Body"]["value"]["HistorySamples"][0]["Value"] == 25.93
-
-
-def test_create_from_message():
-    """Test generating the from message from test data."""
-
-    template_name = "template_source_message.json"
+    template_name = "source_message_template.jinja.json"
     message = template.render_dict(SAMPLE_DATA, TEMPLATE_PATH, template_name)
 
     assert isinstance(message, dict)
