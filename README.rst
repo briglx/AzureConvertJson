@@ -37,10 +37,17 @@ Configure the global variables
 
 .. code-block:: bash
 
+    # Global
     RG_NAME = jsonconvert
     RG_REGION = westus
+    
+    #Event Hubs
     EH_NAMESPACE = jsconvonvert_ehn
     EH_NAME = jsonconvert_eh
+
+    # Logic App variables
+    LOGIC_APP_NAME = JsonConvert
+
 
 
 
@@ -68,9 +75,19 @@ Create a resource group for this project
 **Logic App**
 
 - Create Logic App
-- Create Integration Account
-- Add Map to Integraton Account
 
+Make a copy of `logic_app\definition-example.json` and rename to `logic_app\definition.json`. Edit the file with the necessary values.
+
+- The `<subscription_id>` is the target subscription id.
+
+Deploy the Logic App 
+
+.. code-block:: bash
+
+    az logic workflow create --definition /path_to_project/logic_app/definition.json
+    --location $RG_REGION
+    --name $LOGIC_APP_NAME
+    --resource-group $RG_NAME
 
 Generator
 ---------
@@ -252,3 +269,4 @@ References
 - Liquid in Logic App https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-enterprise-integration-liquid-transform
 - Create Logic App Integration Account https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-enterprise-integration-create-integration-account?tabs=azure-portal
 - Azure Functions on Docker https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-linux-custom-image?tabs=bash%2Cportal&pivots=programming-language-python
+- Enterprise Logic App and Event Messaging https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/enterprise-integration/queues-events
