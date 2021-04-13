@@ -15,7 +15,10 @@ SAMPLE_DATA = {
         }
     ],
 }
+TEMPLATE_PATH = "docs"
 TEST_ROOT = "tests"
 TEST_RESOURCE_PATH = os.path.join(TEST_ROOT, "resources")
-TEMPLATE_PATH = "docs"
-SOURCE_FILE = os.path.join(TEST_RESOURCE_PATH, "source.json")
+SOURCE_FILE = os.path.join(TEST_RESOURCE_PATH, "source_message.json")
+LOGIC_APP_SOURCE_FILE = os.path.join(
+    TEST_RESOURCE_PATH, "source_logic_app_message.json"
+)

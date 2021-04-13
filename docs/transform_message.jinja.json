@@ -1,14 +1,14 @@
 {
-  "CreatedTime": "{{ result[0]["MyEnergyData_MarketDocument"]["createdDateTime"] }}",
-  "Id": "{{ result[0]["MyEnergyData_MarketDocument"]["mRID"] }}",
+  "CreatedTime": "{{ content.result[0]["MyEnergyData_MarketDocument"]["createdDateTime"] }}",
+  "Id": "{{ content.result[0]["MyEnergyData_MarketDocument"]["mRID"] }}",
   "CreatorType": "EnergiNet",
   "GeneratorType": "EnergiNet",
   "Body": {
     "type": "TextualBody",
     "value": {
-      "SystemGuid":"{{ range(1, 51) | random }}",
+      "SystemGuid":"{{ system_guid }}",
       "HistorySamples":[
-      {% for item in result[0]["MyEnergyData_MarketDocument"]["TimeSeries"]  %}
+      {% for item in content.result[0]["MyEnergyData_MarketDocument"]["TimeSeries"]  %}
           {% for point in item["Period"]  %}
           {
             "ItemName":"{{item.mRID}}",
@@ -27,7 +27,7 @@
   "BodyProperties": [
     {
       "Key": "SystemGuid",
-      "Value": "{{ range(1, 51) | random }}"
+      "Value": "{{ system_guid }}"
     }
   ],
   "EventType": "DataChange.Update"

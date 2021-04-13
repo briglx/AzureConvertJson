@@ -82,6 +82,7 @@ Make a copy of `local-example.env` and rename to `local.env`. Edit the file with
 - The `EVENT_HUB_CONNECTION_STRING` is in the format `Endpoint=sb://<yournamespace>.servicebus.windows.net/;SharedAccessKeyName=<yoursharedaccesskeyname>;SharedAccessKey=<yoursharedaccesskey>`
 - The `EVENT_HUB_NAME` is the name of your eventhub.
 - The `TEMPLATE_PATH` is the path to your message template file `/path/to/templates/`
+- The `TEMPLATE_SOURCE_MESSAGE` is the name of the template to generate the source message. 
 
 Run generator in docker
 
@@ -123,16 +124,39 @@ This project shows three different ways to transform Json to Json documents from
 | Need Integration Account     | ✅                       | ❌               | ❌                  |
 +------------------------------+-------------------------+-----------------+--------------------+
 
-============================   =======================  ==============  ==================
-Feature                        Liquid Transform Action  Azure Function  Container Instance 
-----------------------------   -----------------------  --------------  ------------------
-Use Liquid Template Language   ✅                        ✅               ✅
-Use Jinja Template Language    X                        ✅               ✅ 
-Use Custom Filters             X                        ✅               ✅ 
-Need Integration Account       ✅                        X               X  
-============================   =======================  ==============  ==================
-✅ 
-❌
+**Liquid Transform Action Option**
+
+* Create an integration account
+* Upload the file `/docs/template_transform.liquid.json` as a Map
+* Add the step to the logic app
+
+**Azure Function Option**
+
+* Publish the transform code as a function
+* Add the step to the logic app
+
+Run function locally
+
+.. code-block:: bash
+
+    # Build and Run Docker
+    > cd /project_root/transform/TransformJsonToJason
+    > docker build --pull --rm -f "dockerfile" -t jsontransform:latest "."
+    > docker run --rm -it -p 8080:80 --env-file local.env jsontransform:latest
+
+    #Run app
+    > /azure-functions-host/Microsoft.Azure.WebJobs.Script.WebHost
+
+
+**Container Instance Option**
+
+* Create Container registry
+* Create Container Instance Group
+* Create Service Principal with Access
+* Build `transform_dockerfile` 
+* Publish image
+* Add the step to the logic app
+
 
 Development
 ===========
@@ -211,10 +235,10 @@ Now that you have all test dependencies installed, you can run linting and tests
 
     isort .
     codespell  --skip="./.*,*.csv,*.json,*.pyc,./docs/_build/*,./htmlcov/*"
-    black setup.py generator tests
-    flake8 setup.py generator tests
-    pylint setup.py generator tests
-    pydocstyle setup.py generator tests
+    black setup.py generator transform tests
+    flake8 setup.py generator transform tests
+    pylint setup.py generator transform tests
+    pydocstyle setup.py generator transform tests
     pytest tests
 
 .. |architecture-overview| image:: docs/JsonConvertArchitecture.png
@@ -227,4 +251,4 @@ References
 - Liquid template https://shopify.github.io/liquid/basics/introduction/
 - Liquid in Logic App https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-enterprise-integration-liquid-transform
 - Create Logic App Integration Account https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-enterprise-integration-create-integration-account?tabs=azure-portal
-- Azure Fuctions on Docker https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-linux-custom-image?tabs=bash%2Cportal&pivots=programming-language-python
+- Azure Functions on Docker https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-linux-custom-image?tabs=bash%2Cportal&pivots=programming-language-python

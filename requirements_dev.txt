@@ -8,3 +8,4 @@ pydocstyle==5.1.1
 pylint==2.6.0
 pytest==6.2.3
 pre-commit==2.8.2
+azure-functions==1.7.0

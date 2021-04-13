@@ -1,21 +1,22 @@
 {
+  "content": {
     "result": [
       {
         "MyEnergyData_MarketDocument": {
-          "mRID": "{{m_rid}}",
-          "createdDateTime": "{{create_datetime}}",
+          "mRID": "4bd56d4a8acb43f6a748231d534710e1",
+          "createdDateTime": "2020-11-17T06:25:12Z",
           "sender_MarketParticipant.name": "",
           "sender_MarketParticipant.mRID": {
             "codingScheme": null,
             "name": null
           },
           "period.timeInterval": {
-            "start": "{{period_start_time}}",
-            "end": "{{period_end_time}}"
+            "start": "2019-07-23T22:00:00Z",
+            "end": "2020-09-30T22:00:00Z"
           },
           "TimeSeries": [
             {
-              "mRID": "{{m_rid}}",
+              "mRID": "571313115101547814",
               "businessType": "A04",
               "curveType": "A01",
               "measurement_Unit.name": "KWH",
@@ -26,25 +27,34 @@
                 }
               },
               "Period": [
-                {% for item in values  %}
                 {
                   "resolution": "PT1D",
                   "timeInterval": {
-                    "start": "{{item.start_interval}}",
-                    "end": "{{item.end_interval}}"
+                    "start": "2019-07-23T22:00:00Z",
+                    "end": "2019-07-24T22:00:00Z"
                   },
                   "Point": [
                     {
                       "position": "1",
-                      "out_Quantity.quantity": "{{item.value}}",
-                      "out_Quantity.quality": "{{item.quality | convert}}"
+                      "out_Quantity.quantity": "25.93",
+                      "out_Quantity.quality": "A04"
+                    }
+                  ]
+                },
+                {
+                  "resolution": "PT1D",
+                  "timeInterval": {
+                    "start": "2019-07-24T22:00:00Z",
+                    "end": "2019-07-25T22:00:00Z"
+                  },
+                  "Point": [
+                    {
+                      "position": "1",
+                      "out_Quantity.quantity": "32.152",
+                      "out_Quantity.quality": "A04"
                     }
                   ]
                 }
-                {% if not loop.last %}
-                ,
-                {% endif %}
-                {% endfor %}
               ]
             }
           ]
@@ -52,4 +62,5 @@
       }
     ]
   }
+}
   

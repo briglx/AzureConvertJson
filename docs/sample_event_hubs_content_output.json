@@ -1,0 +1,434 @@
+{
+    "content": {
+        "result": [
+            {
+                "MyEnergyData_MarketDocument": {
+                    "mRID": "718a3501dc6839258e717a313a7bf41f",
+                    "createdDateTime": "2021-04-10T23:40:40Z",
+                    "sender_MarketParticipant.name": "",
+                    "sender_MarketParticipant.mRID": {
+                        "codingScheme": null,
+                        "name": null
+                    },
+                    "period.timeInterval": {
+                        "start": "2021-04-10T23:40:40Z",
+                        "end": "2021-04-10T23:41:08Z"
+                    },
+                    "TimeSeries": [
+                        {
+                            "mRID": "718a3501dc6839258e717a313a7bf41f",
+                            "businessType": "A04",
+                            "curveType": "A01",
+                            "measurement_Unit.name": "KWH",
+                            "MarketEvaluationPoint": {
+                                "mRID": {
+                                    "codingScheme": "A10",
+                                    "name": "571313115101547814"
+                                }
+                            },
+                            "Period": [
+                                {
+                                    "resolution": "PT1D",
+                                    "timeInterval": {
+                                        "start": "2021-04-10T23:40:40Z",
+                                        "end": "2021-04-10T23:40:41Z"
+                                    },
+                                    "Point": [
+                                        {
+                                            "position": "1",
+                                            "out_Quantity.quantity": "47.095532865077146",
+                                            "out_Quantity.quality": "A04"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "resolution": "PT1D",
+                                    "timeInterval": {
+                                        "start": "2021-04-10T23:40:41Z",
+                                        "end": "2021-04-10T23:40:42Z"
+                                    },
+                                    "Point": [
+                                        {
+                                            "position": "1",
+                                            "out_Quantity.quantity": "2.2140959622527774",
+                                            "out_Quantity.quality": "A04"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "resolution": "PT1D",
+                                    "timeInterval": {
+                                        "start": "2021-04-10T23:40:42Z",
+                                        "end": "2021-04-10T23:40:43Z"
+                                    },
+                                    "Point": [
+                                        {
+                                            "position": "1",
+                                            "out_Quantity.quantity": "-42.66734094057159",
+                                            "out_Quantity.quality": "A04"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "resolution": "PT1D",
+                                    "timeInterval": {
+                                        "start": "2021-04-10T23:40:43Z",
+                                        "end": "2021-04-10T23:40:44Z"
+                                    },
+                                    "Point": [
+                                        {
+                                            "position": "1",
+                                            "out_Quantity.quantity": "-87.54877784339595",
+                                            "out_Quantity.quality": "A04"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "resolution": "PT1D",
+                                    "timeInterval": {
+                                        "start": "2021-04-10T23:40:44Z",
+                                        "end": "2021-04-10T23:40:45Z"
+                                    },
+                                    "Point": [
+                                        {
+                                            "position": "1",
+                                            "out_Quantity.quantity": "-132.43021474622032",
+                                            "out_Quantity.quality": "A04"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "resolution": "PT1D",
+                                    "timeInterval": {
+                                        "start": "2021-04-10T23:40:45Z",
+                                        "end": "2021-04-10T23:40:46Z"
+                                    },
+                                    "Point": [
+                                        {
+                                            "position": "1",
+                                            "out_Quantity.quantity": "-177.31165164904468",
+                                            "out_Quantity.quality": "A04"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "resolution": "PT1D",
+                                    "timeInterval": {
+                                        "start": "2021-04-10T23:40:46Z",
+                                        "end": "2021-04-10T23:40:47Z"
+                                    },
+                                    "Point": [
+                                        {
+                                            "position": "1",
+                                            "out_Quantity.quantity": "-222.19308855186904",
+                                            "out_Quantity.quality": "A04"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "resolution": "PT1D",
+                                    "timeInterval": {
+                                        "start": "2021-04-10T23:40:47Z",
+                                        "end": "2021-04-10T23:40:48Z"
+                                    },
+                                    "Point": [
+                                        {
+                                            "position": "1",
+                                            "out_Quantity.quantity": "-267.0745254546934",
+                                            "out_Quantity.quality": "A04"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "resolution": "PT1D",
+                                    "timeInterval": {
+                                        "start": "2021-04-10T23:40:48Z",
+                                        "end": "2021-04-10T23:40:49Z"
+                                    },
+                                    "Point": [
+                                        {
+                                            "position": "1",
+                                            "out_Quantity.quantity": "-311.95596235751776",
+                                            "out_Quantity.quality": "A04"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "resolution": "PT1D",
+                                    "timeInterval": {
+                                        "start": "2021-04-10T23:40:49Z",
+                                        "end": "2021-04-10T23:40:50Z"
+                                    },
+                                    "Point": [
+                                        {
+                                            "position": "1",
+                                            "out_Quantity.quantity": "-356.8373992603421",
+                                            "out_Quantity.quality": "A04"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "resolution": "PT1D",
+                                    "timeInterval": {
+                                        "start": "2021-04-10T23:40:50Z",
+                                        "end": "2021-04-10T23:40:51Z"
+                                    },
+                                    "Point": [
+                                        {
+                                            "position": "1",
+                                            "out_Quantity.quantity": "-401.7188361631665",
+                                            "out_Quantity.quality": "A04"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "resolution": "PT1D",
+                                    "timeInterval": {
+                                        "start": "2021-04-10T23:40:51Z",
+                                        "end": "2021-04-10T23:40:52Z"
+                                    },
+                                    "Point": [
+                                        {
+                                            "position": "1",
+                                            "out_Quantity.quantity": "-446.60027306599085",
+                                            "out_Quantity.quality": "A04"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "resolution": "PT1D",
+                                    "timeInterval": {
+                                        "start": "2021-04-10T23:40:52Z",
+                                        "end": "2021-04-10T23:40:53Z"
+                                    },
+                                    "Point": [
+                                        {
+                                            "position": "1",
+                                            "out_Quantity.quantity": "-491.4817099688152",
+                                            "out_Quantity.quality": "A04"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "resolution": "PT1D",
+                                    "timeInterval": {
+                                        "start": "2021-04-10T23:40:53Z",
+                                        "end": "2021-04-10T23:40:54Z"
+                                    },
+                                    "Point": [
+                                        {
+                                            "position": "1",
+                                            "out_Quantity.quantity": "-536.3631468716396",
+                                            "out_Quantity.quality": "A04"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "resolution": "PT1D",
+                                    "timeInterval": {
+                                        "start": "2021-04-10T23:40:54Z",
+                                        "end": "2021-04-10T23:40:55Z"
+                                    },
+                                    "Point": [
+                                        {
+                                            "position": "1",
+                                            "out_Quantity.quantity": "-581.244583774464",
+                                            "out_Quantity.quality": "A04"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "resolution": "PT1D",
+                                    "timeInterval": {
+                                        "start": "2021-04-10T23:40:55Z",
+                                        "end": "2021-04-10T23:40:56Z"
+                                    },
+                                    "Point": [
+                                        {
+                                            "position": "1",
+                                            "out_Quantity.quantity": "-626.1260206772884",
+                                            "out_Quantity.quality": "A04"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "resolution": "PT1D",
+                                    "timeInterval": {
+                                        "start": "2021-04-10T23:40:56Z",
+                                        "end": "2021-04-10T23:40:57Z"
+                                    },
+                                    "Point": [
+                                        {
+                                            "position": "1",
+                                            "out_Quantity.quantity": "-671.0074575801127",
+                                            "out_Quantity.quality": "A04"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "resolution": "PT1D",
+                                    "timeInterval": {
+                                        "start": "2021-04-10T23:40:57Z",
+                                        "end": "2021-04-10T23:40:58Z"
+                                    },
+                                    "Point": [
+                                        {
+                                            "position": "1",
+                                            "out_Quantity.quantity": "-715.8888944829371",
+                                            "out_Quantity.quality": "A04"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "resolution": "PT1D",
+                                    "timeInterval": {
+                                        "start": "2021-04-10T23:40:58Z",
+                                        "end": "2021-04-10T23:40:59Z"
+                                    },
+                                    "Point": [
+                                        {
+                                            "position": "1",
+                                            "out_Quantity.quantity": "-760.7703313857614",
+                                            "out_Quantity.quality": "A04"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "resolution": "PT1D",
+                                    "timeInterval": {
+                                        "start": "2021-04-10T23:40:59Z",
+                                        "end": "2021-04-10T23:41:00Z"
+                                    },
+                                    "Point": [
+                                        {
+                                            "position": "1",
+                                            "out_Quantity.quantity": "-805.6517682885858",
+                                            "out_Quantity.quality": "A04"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "resolution": "PT1D",
+                                    "timeInterval": {
+                                        "start": "2021-04-10T23:41:00Z",
+                                        "end": "2021-04-10T23:41:01Z"
+                                    },
+                                    "Point": [
+                                        {
+                                            "position": "1",
+                                            "out_Quantity.quantity": "-850.5332051914102",
+                                            "out_Quantity.quality": "A04"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "resolution": "PT1D",
+                                    "timeInterval": {
+                                        "start": "2021-04-10T23:41:01Z",
+                                        "end": "2021-04-10T23:41:02Z"
+                                    },
+                                    "Point": [
+                                        {
+                                            "position": "1",
+                                            "out_Quantity.quantity": "-895.4146420942345",
+                                            "out_Quantity.quality": "A04"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "resolution": "PT1D",
+                                    "timeInterval": {
+                                        "start": "2021-04-10T23:41:02Z",
+                                        "end": "2021-04-10T23:41:03Z"
+                                    },
+                                    "Point": [
+                                        {
+                                            "position": "1",
+                                            "out_Quantity.quantity": "-940.2960789970589",
+                                            "out_Quantity.quality": "A04"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "resolution": "PT1D",
+                                    "timeInterval": {
+                                        "start": "2021-04-10T23:41:03Z",
+                                        "end": "2021-04-10T23:41:04Z"
+                                    },
+                                    "Point": [
+                                        {
+                                            "position": "1",
+                                            "out_Quantity.quantity": "-985.1775158998832",
+                                            "out_Quantity.quality": "A04"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "resolution": "PT1D",
+                                    "timeInterval": {
+                                        "start": "2021-04-10T23:41:04Z",
+                                        "end": "2021-04-10T23:41:05Z"
+                                    },
+                                    "Point": [
+                                        {
+                                            "position": "1",
+                                            "out_Quantity.quantity": "-1030.0589528027076",
+                                            "out_Quantity.quality": "A04"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "resolution": "PT1D",
+                                    "timeInterval": {
+                                        "start": "2021-04-10T23:41:05Z",
+                                        "end": "2021-04-10T23:41:06Z"
+                                    },
+                                    "Point": [
+                                        {
+                                            "position": "1",
+                                            "out_Quantity.quantity": "-1074.940389705532",
+                                            "out_Quantity.quality": "A04"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "resolution": "PT1D",
+                                    "timeInterval": {
+                                        "start": "2021-04-10T23:41:06Z",
+                                        "end": "2021-04-10T23:41:07Z"
+                                    },
+                                    "Point": [
+                                        {
+                                            "position": "1",
+                                            "out_Quantity.quantity": "-1119.8218266083563",
+                                            "out_Quantity.quality": "A04"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "resolution": "PT1D",
+                                    "timeInterval": {
+                                        "start": "2021-04-10T23:41:07Z",
+                                        "end": "2021-04-10T23:41:08Z"
+                                    },
+                                    "Point": [
+                                        {
+                                            "position": "1",
+                                            "out_Quantity.quantity": "-1164.7032635111807",
+                                            "out_Quantity.quality": "A04"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "integrationAccount": {
+        "map": {
+            "name": "TraslateAtoB"
+        }
+    }
+}

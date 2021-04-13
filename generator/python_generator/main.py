@@ -14,7 +14,7 @@ from string import Template
 from azure.eventhub import EventData
 from azure.eventhub.aio import EventHubProducerClient
 
-from generator.python_generator import template
+from generator.python_generator import template_jinja as template
 
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
@@ -78,7 +78,7 @@ def create_sample_data():
         "SystemGuid": generate_guid(),
         "period_start_time": get_date_isoformat(period_start_time),
         "period_end_time": get_date_isoformat(period_end_time),
-        "values": values
+        "values": values,
     }
 
     return sample_data
@@ -141,11 +141,6 @@ if __name__ == "__main__":
         "-ts",
         help="Template to create the Source Message",
     )
-    parser.add_argument(
-        "--template_transform",
-        "-tt",
-        help="Template used to Transform messages",
-    )
 
     args = parser.parse_args()
 
@@ -157,7 +152,6 @@ if __name__ == "__main__":
     TEMPLATE_SOURCE_MESSAGE = args.template_source_message or os.environ.get(
         "TEMPLATE_SOURCE_MESSAGE"
     )
-    TEMPLATE_TRANSFORM = args.template_transform or os.environ.get("TEMPLATE_TRANSFORM")
 
     if not CONNECTION_STRING:
         raise ValueError(
@@ -180,12 +174,6 @@ if __name__ == "__main__":
         raise ValueError(
             "Template source message is required."
             "Have you set the TEMPLATE_SOURCE_MESSAGE env variable?"
-        )
-
-    if not TEMPLATE_TRANSFORM:
-        raise ValueError(
-            "Template transform is required."
-            "Have you set the TEMPLATE_TRANSFORM env variable?"
         )
 
     # This restores the default Ctrl+C signal handler, which just kills the process

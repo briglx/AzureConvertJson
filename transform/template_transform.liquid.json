@@ -14,7 +14,7 @@
               "ItemName":"{{item.mRID}}",
               "Value": {{point["Point"][0]["out_Quantity.quantity"]}},
               "Time": "{{point["timeInterval"]["start"]}}",
-              "Quality": "{{point["Point"][0]["out_Quantity.quality"]}}"
+              "Quality": "{{point["Point"][0]["out_Quantity.quality"] | convert}}"
             }
             {% if forloop.last == false %}
             ,
