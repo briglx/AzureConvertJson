@@ -30,6 +30,7 @@
                 },
                 "type": "ApiConnection"
             },
+<<<<<<< HEAD
             "Create_blob_2": {
                 "inputs": {
                     "body": "@body('Transform_JSON_to_JSON_(Func)')",
@@ -58,6 +59,8 @@
                 },
                 "type": "ApiConnection"
             },
+=======
+>>>>>>> 85cca65... Add logic app step
             "Transform_JSON_to_JSON": {
                 "inputs": {
                     "content": "@triggerBody()?['ContentData']",
@@ -70,6 +73,7 @@
                 "kind": "JsonToJson",
                 "runAfter": {},
                 "type": "Liquid"
+<<<<<<< HEAD
             },
             "Transform_JSON_to_JSON_(Func)": {
                 "inputs": {
@@ -80,6 +84,8 @@
                 },
                 "runAfter": {},
                 "type": "Function"
+=======
+>>>>>>> 85cca65... Add logic app step
             }
         },
         "contentVersion": "1.0.0.0",
