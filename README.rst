@@ -154,6 +154,8 @@ This project shows three different ways to transform Json to Json documents from
 
 **Azure Function Option**
 
+|architecture-function-overview|
+
 * Publish the transform code as a function
 * Add the step to the logic app
 
@@ -323,7 +325,7 @@ Now that you have all test dependencies installed, you can run linting and tests
     pytest tests
 
 .. |architecture-overview| image:: docs/JsonConvertArchitecture.png
-
+.. |architecture-function-overview| image:: docs/JsonConvertFunctionArchitecture.png
 
 References
 ----------
