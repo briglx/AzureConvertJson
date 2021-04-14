@@ -302,6 +302,8 @@ This project shows three different ways to transform Json to Json documents from
 
 **Azure Function Option**
 
+|architecture-function-overview|
+
 * Publish the transform code as a function
 * Add the step to the logic app
 
