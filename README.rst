@@ -40,6 +40,7 @@ Configure the global variables
     # Global
     RG_NAME = jsonconvert
     RG_REGION = westus
+    STORAGE_ACCOUNT_NAME = jsonconvert
     
     #Event Hubs
     EH_NAMESPACE = jsconvonvert_ehn
@@ -47,6 +48,10 @@ Configure the global variables
 
     # Logic App variables
     LOGIC_APP_NAME = JsonConvert
+
+    # Function App
+    
+    FUNCTION_APP_NAME = JsonConvertFunc
 
 
 
@@ -152,7 +157,30 @@ This project shows three different ways to transform Json to Json documents from
 * Publish the transform code as a function
 * Add the step to the logic app
 
-Run function locally
+Run function locally with `func`
+
+Add the following to `local.settings.json`:
+
+- The `TEMPLATE_PATH` is the path to your message template file `/path/to/templates/`
+- The `TEMPLATE_SOURCE_MESSAGE` is the name of the template to generate the source message. 
+
+.. code-block:: json
+
+    {
+        "Values": {
+            "TEMPLATE_PATH":".",
+            "TEMPLATE_NAME":"template_transform.liquid.json"
+        }
+    }
+
+Start the runtime using `func`.
+
+.. code-block:: bash
+
+    func start
+
+
+Run function locally as Docker. The docker image mimics the folder structure on Azure.
 
 .. code-block:: bash
 
@@ -164,6 +192,42 @@ Run function locally
     #Run app
     > /azure-functions-host/Microsoft.Azure.WebJobs.Script.WebHost
 
+Create the function on Azure
+
+.. code-block:: bash
+
+    # Create Storage Account
+    az storage account create 
+        --resource-group $RG_NAME
+        --name $STORAGE_ACCOUNT_NAME 
+        --location $RG_REGION          
+        --sku Standard_LRS
+
+    az functionapp create 
+        --resource-group $RG_NAME
+        --consumption-plan-location $RG_REGION 
+        --runtime python 
+        --runtime-version 3.8 
+        --functions-version 3 
+        --name $FUNCTION_APP_NAME 
+        --storage-account $STORAGE_ACCOUNT_NAME 
+        --os-type linux
+
+Deploy the function app.
+
+.. code-block:: bash
+
+    cd /path_to_project
+    func azure functionapp publish $FUNCTION_APP_NAME 
+
+Configure Environment Variables
+
+.. code-block:: bash
+
+    az functionapp config appsettings set 
+        --name $FUNCTION_APP_NAME 
+        --resource-group $RG_NAME 
+        --settings TEMPLATE_PATH=.
 
 **Container Instance Option**
 
@@ -268,5 +332,6 @@ References
 - Liquid template https://shopify.github.io/liquid/basics/introduction/
 - Liquid in Logic App https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-enterprise-integration-liquid-transform
 - Create Logic App Integration Account https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-enterprise-integration-create-integration-account?tabs=azure-portal
+- Create an Azure Function https://docs.microsoft.com/en-us/azure/azure-functions/create-first-function-cli-python?tabs=azure-cli%2Cbash%2Cbrowser
 - Azure Functions on Docker https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-linux-custom-image?tabs=bash%2Cportal&pivots=programming-language-python
 - Enterprise Logic App and Event Messaging https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/enterprise-integration/queues-events
