@@ -49,9 +49,17 @@ Configure the global variables
     # Logic App variables
     LOGIC_APP_NAME = JsonConvert
 
-    # Function App
-    
+    # Transform - Function App    
     FUNCTION_APP_NAME = JsonConvertFunc
+
+    # Transofrm - Container
+    CONTAINER_INSTANCE_NAME = jsonconvert-ci
+
+    # Existing Resources
+    ACR_REGISTRY_NAME = <existing-registry-name>
+    SERVICE_PRINCIPAL_ID = <existing-service-principal-id>
+    SERVICE_PRINCIPAL_PASSWORD = <existing-service-principal-password>
+
 
 **Resource Group**
 
@@ -246,6 +254,25 @@ Build and run the image locally
     #Run app
     > python server.py
 
+Tag and push to Remote registry
+
+.. code-block:: bash
+
+    docker tag jsontransform_docker:latest $ACR_REGISTRY_NAME.azurecr.io/jsontransform:v1
+    az acr login --name $ACR_REGISTRY_NAME
+    docker push $ACR_REGISTRY_NAME.azurecr.io/jsontransform:v1
+
+Start container
+
+.. code-block:: bash
+
+    az container create --resource-group $RG_NAME --name $CONTAINER_INSTANCE_NAME 
+        --image $ACR_REGISTRY_NAME.azurecr.io/jsontransform:v1 
+        --registry-username $SERVICE_PRINCIPAL_ID 
+        --registry-password $SERVICE_PRINCIPAL_PASSWORD 
+        --restart-policy Never
+        --environment-variables 'TEMPLATE_PATH=/app/' 'TEMPLATE_NAME=template_transform.liquid.fx.json'
+        --port 8080 --ip-address public --dns-name-label jsonconvert
 
 Development
 ===========
