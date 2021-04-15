@@ -16,6 +16,7 @@ RUN pip install -r /home/site/wwwroot/requirements.txt
 
 COPY host.json /home/site/wwwroot/
 COPY liquid_json_transform/ /home/site/wwwroot/liquid_json_transform/
+COPY template_transform.liquid.fx.json /home/site/wwwroot/
 COPY template_transform.liquid.json /home/site/wwwroot/
 
 ENTRYPOINT [ "/bin/bash" ]

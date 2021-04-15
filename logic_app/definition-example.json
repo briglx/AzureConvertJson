@@ -30,6 +30,34 @@
                 },
                 "type": "ApiConnection"
             },
+            "Create_blob_2": {
+                "inputs": {
+                    "body": "@body('Transform_JSON_to_JSON_(Func)')",
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['azureblob']['connectionId']"
+                        }
+                    },
+                    "method": "post",
+                    "path": "/datasets/default/files",
+                    "queries": {
+                        "folderPath": "/messages",
+                        "name": "@{concat('func-', triggerBody()?['SystemProperties']?['EnqueuedTimeUtc'])}",
+                        "queryParametersSingleEncoded": true
+                    }
+                },
+                "runAfter": {
+                    "Transform_JSON_to_JSON_(Func)": [
+                        "Succeeded"
+                    ]
+                },
+                "runtimeConfiguration": {
+                    "contentTransfer": {
+                        "transferMode": "Chunked"
+                    }
+                },
+                "type": "ApiConnection"
+            },
             "Transform_JSON_to_JSON": {
                 "inputs": {
                     "content": "@triggerBody()?['ContentData']",
@@ -42,6 +70,16 @@
                 "kind": "JsonToJson",
                 "runAfter": {},
                 "type": "Liquid"
+            },
+            "Transform_JSON_to_JSON_(Func)": {
+                "inputs": {
+                    "body": "@triggerBody()?['ContentData']",
+                    "function": {
+                        "id": "/subscriptions/<subscription_id>/resourceGroups/JsonConvert/providers/Microsoft.Web/sites/JsonConvertFunc/functions/liquid_json_transform"
+                    }
+                },
+                "runAfter": {},
+                "type": "Function"
             }
         },
         "contentVersion": "1.0.0.0",

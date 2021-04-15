@@ -81,6 +81,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     # Get payload
     data = req.get_json()
+    logger.warning(json.dumps(data))
 
     # Add tracking guid
     data["system_guid"] = generate_guid()
