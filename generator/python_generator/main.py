@@ -111,7 +111,7 @@ async def run():
             await PRODUCER.send_batch(event_data_batch)
 
             logging.info("waiting...")
-            await asyncio.sleep(1)
+            # await asyncio.sleep(1)
 
 
 if __name__ == "__main__":

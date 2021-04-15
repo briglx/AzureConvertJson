@@ -53,9 +53,6 @@ Configure the global variables
     
     FUNCTION_APP_NAME = JsonConvertFunc
 
-
-
-
 **Resource Group**
 
 Create a resource group for this project
@@ -81,9 +78,9 @@ Create a resource group for this project
 
 - Create Logic App
 
-Make a copy of `logic_app\definition-example.json` and rename to `logic_app\definition.json`. Edit the file with the necessary values.
+Make a copy of ``logic_app\definition-example.json`` and rename to ``logic_app\definition.json``. Edit the file with the necessary values.
 
-- The `<subscription_id>` is the target subscription id.
+- The ``<subscription_id>`` is the target subscription id.
 
 Deploy the Logic App 
 
@@ -97,29 +94,20 @@ Deploy the Logic App
 Generator
 ---------
 
-The generator is a python application that runs in a docker container. The container expects the following environment variables stored in a `local.env` file.
+The generator is a python application that runs in a docker container. The container expects the following environment variables stored in a ``local.env`` file.
 
-Make a copy of `local-example.env` and rename to `local.env`. Edit the file with the necessary values.
+Make a copy of ``local-example.env`` and rename to ``local.env``. Edit the file with the necessary values.
 
-- The `EVENT_HUB_CONNECTION_STRING` is in the format `Endpoint=sb://<yournamespace>.servicebus.windows.net/;SharedAccessKeyName=<yoursharedaccesskeyname>;SharedAccessKey=<yoursharedaccesskey>`
-- The `EVENT_HUB_NAME` is the name of your eventhub.
-- The `TEMPLATE_PATH` is the path to your message template file `/path/to/templates/`
-- The `TEMPLATE_SOURCE_MESSAGE` is the name of the template to generate the source message. 
+- The ``EVENT_HUB_CONNECTION_STRING`` is in the format ``Endpoint=sb://<yournamespace>.servicebus.windows.net/;SharedAccessKeyName=<yoursharedaccesskeyname>;SharedAccessKey=<yoursharedaccesskey>``
+- The ``EVENT_HUB_NAME`` is the name of your eventhub.
+- The ``TEMPLATE_PATH`` is the path to your message template file ``/path/to/templates/``
+- The ``TEMPLATE_SOURCE_MESSAGE`` is the name of the template to generate the source message. 
 
 Run generator in docker
 
 .. code-block:: bash
 
     # Build and run image
-    > docker build --pull --rm -f "dockerfile" -t jsonconvert:latest "."
-    > docker run --rm -it --env-file local.env jsonconvert:latest
-
-    #Run app
-    > python generator/python_generator/main.py --template_path /path/to/templates/
-
-.. code-block:: bash
-
-    # Build and Run Docker
     > docker build --pull --rm -f "dockerfile" -t jsonconvert:latest "."
     > docker run --rm -it --env-file local.env jsonconvert:latest
 
@@ -146,16 +134,16 @@ This project shows three different ways to transform Json to Json documents from
 | Append Additional Data       | ❌                                        | ✅                                       | ✅                  |
 +------------------------------+------------------------------------------+-----------------------------------------+--------------------+
 | Integration Account Required | ✅                                        | ❌                                       | ❌                  |
-+------------------------------+-------------------------------------------+----------------------------------------+--------------------+
-| Root Element from EventHubs  | `{"content": "result"[...]}"`            | `{"result"[...]}"`                      |                    |
-+------------------------------+-------------------------------------------+----------------------------------------+--------------------+
-| Date Format                  | `"CreatedTime": "4/14/2021 11:55:53 PM"` | `"CreatedTime": "2021-04-14T23:55:53Z"` |                    |
++------------------------------+------------------------------------------+-----------------------------------------+--------------------+
+| Root Element from EventHubs  | ``{"content": "result"[...]}"``            | ``{"result"[...]}"``                      |                    |
++------------------------------+------------------------------------------+-----------------------------------------+--------------------+
+| Date Format                  | ``"CreatedTime": "4/14/2021 11:55:53 PM"`` | ``"CreatedTime": "2021-04-14T23:55:53Z"`` |                    |
 +------------------------------+------------------------------------------+-----------------------------------------+--------------------+
 
 **Liquid Transform Action Option**
 
 * Create an integration account
-* Upload the file `/docs/template_transform.liquid.json` as a Map
+* Upload the file ``/docs/template_transform.liquid.json`` as a Map
 * Add the step to the logic app
 
 **Azure Function Option**
@@ -165,12 +153,12 @@ This project shows three different ways to transform Json to Json documents from
 * Publish the transform code as a function
 * Add the step to the logic app
 
-Run function locally with `func`
+Run function locally with ``func``
 
-Add the following to `local.settings.json`:
+Add the following to ``local.settings.json``:
 
-- The `TEMPLATE_PATH` is the path to your message template file `/path/to/templates/`
-- The `TEMPLATE_SOURCE_MESSAGE` is the name of the template to generate the source message. 
+- The ``TEMPLATE_PATH`` is the path to your message template file ``/path/to/templates/``
+- The ``TEMPLATE_SOURCE_MESSAGE`` is the name of the template to generate the source message. 
 
 .. code-block:: json
 
@@ -181,7 +169,7 @@ Add the following to `local.settings.json`:
         }
     }
 
-Start the runtime using `func`.
+Start the runtime using ``func``.
 
 .. code-block:: bash
 
@@ -242,9 +230,21 @@ Configure Environment Variables
 * Create Container registry
 * Create Container Instance Group
 * Create Service Principal with Access
-* Build `transform_dockerfile` 
+* Build ``transform_dockerfile`` 
 * Publish image
 * Add the step to the logic app
+
+Build and run the image locally 
+
+.. code-block:: bash
+
+    # Build and Run Docker
+    > cd /project_root/transform_docker
+    > docker build --pull --rm -f "dockerfile" -t jsontransform_docker:latest "."
+    > docker run --rm -it -p 8080:8080 --env-file local.env jsontransform_docker:latest
+
+    #Run app
+    > python server.py
 
 
 Development
@@ -262,9 +262,9 @@ Setup your dev environment by creating a virtual environment
 
 Make a copy of local-example.env and rename to local.env. Edit the file with the necessary values.
 
- - The `EVENT_HUB_CONNECTION_STRING` is in the format `Endpoint=sb://<yournamespace>.servicebus.windows.net/;SharedAccessKeyName=<yoursharedaccesskeyname>;SharedAccessKey=<yoursharedaccesskey>`
- - The `EVENT_HUB_NAME` is the name of your eventhub.
- - The `TEMPLATE_PATH` is the path to your message template file `/path/to/templates/`
+ - The ``EVENT_HUB_CONNECTION_STRING`` is in the format ``Endpoint=sb://<yournamespace>.servicebus.windows.net/;SharedAccessKeyName=<yoursharedaccesskeyname>;SharedAccessKey=<yoursharedaccesskey>``
+ - The ``EVENT_HUB_NAME`` is the name of your eventhub.
+ - The ``TEMPLATE_PATH`` is the path to your message template file ``/path/to/templates/``
 
 Style Guidelines
 ----------------
@@ -324,10 +324,10 @@ Now that you have all test dependencies installed, you can run linting and tests
 
     isort .
     codespell  --skip="./.*,*.csv,*.json,*.pyc,./docs/_build/*,./htmlcov/*"
-    black setup.py generator transform tests
-    flake8 setup.py generator transform tests
-    pylint setup.py generator transform tests
-    pydocstyle setup.py generator transform tests
+    black setup.py generator transform transform_docker tests
+    flake8 setup.py generator transform transform_docker tests
+    pylint setup.py generator transform transform_docker tests
+    pydocstyle setup.py generator transform transform_docker tests
     pytest tests
 
 .. |architecture-overview| image:: docs/JsonConvertArchitecture.png
