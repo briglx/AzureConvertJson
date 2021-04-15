@@ -122,6 +122,7 @@ Run generator in docker
     #Run app
     > python generator/python_generator/main.py --template_path /path/to/templates/
 
+<<<<<<< HEAD
 Transform
 ---------
 This project shows three different ways to transform Json to Json documents from a Logic App:
@@ -274,6 +275,8 @@ Start container
         --environment-variables 'TEMPLATE_PATH=/app/' 'TEMPLATE_NAME=template_transform.liquid.fx.json'
         --port 8080 --ip-address public --dns-name-label jsonconvert
 
+=======
+>>>>>>> b1735ee... Add Tranform via Docker. Minor edits.
 Transform
 ---------
 This project shows three different ways to transform Json to Json documents from a Logic App:
@@ -294,16 +297,16 @@ This project shows three different ways to transform Json to Json documents from
 | Append Additional Data       | ❌                                        | ✅                                       | ✅                  |
 +------------------------------+------------------------------------------+-----------------------------------------+--------------------+
 | Integration Account Required | ✅                                        | ❌                                       | ❌                  |
-+------------------------------+-------------------------------------------+----------------------------------------+--------------------+
-| Root Element from EventHubs  | `{"content": "result"[...]}"`            | `{"result"[...]}"`                      |                    |
-+------------------------------+-------------------------------------------+----------------------------------------+--------------------+
-| Date Format                  | `"CreatedTime": "4/14/2021 11:55:53 PM"` | `"CreatedTime": "2021-04-14T23:55:53Z"` |                    |
++------------------------------+------------------------------------------+-----------------------------------------+--------------------+
+| Root Element from EventHubs  | ``{"content": "result"[...]}"``            | ``{"result"[...]}"``                      |                    |
++------------------------------+------------------------------------------+-----------------------------------------+--------------------+
+| Date Format                  | ``"CreatedTime": "4/14/2021 11:55:53 PM"`` | ``"CreatedTime": "2021-04-14T23:55:53Z"`` |                    |
 +------------------------------+------------------------------------------+-----------------------------------------+--------------------+
 
 **Liquid Transform Action Option**
 
 * Create an integration account
-* Upload the file `/docs/template_transform.liquid.json` as a Map
+* Upload the file ``/docs/template_transform.liquid.json`` as a Map
 * Add the step to the logic app
 
 **Azure Function Option**
@@ -313,12 +316,12 @@ This project shows three different ways to transform Json to Json documents from
 * Publish the transform code as a function
 * Add the step to the logic app
 
-Run function locally with `func`
+Run function locally with ``func``
 
-Add the following to `local.settings.json`:
+Add the following to ``local.settings.json``:
 
-- The `TEMPLATE_PATH` is the path to your message template file `/path/to/templates/`
-- The `TEMPLATE_SOURCE_MESSAGE` is the name of the template to generate the source message. 
+- The ``TEMPLATE_PATH`` is the path to your message template file ``/path/to/templates/``
+- The ``TEMPLATE_SOURCE_MESSAGE`` is the name of the template to generate the source message. 
 
 .. code-block:: json
 
@@ -329,7 +332,7 @@ Add the following to `local.settings.json`:
         }
     }
 
-Start the runtime using `func`.
+Start the runtime using ``func``.
 
 .. code-block:: bash
 
@@ -390,9 +393,21 @@ Configure Environment Variables
 * Create Container registry
 * Create Container Instance Group
 * Create Service Principal with Access
-* Build `transform_dockerfile` 
+* Build ``transform_dockerfile`` 
 * Publish image
 * Add the step to the logic app
+
+Build and run the image locally 
+
+.. code-block:: bash
+
+    # Build and Run Docker
+    > cd /project_root/transform_docker
+    > docker build --pull --rm -f "dockerfile" -t jsontransform_docker:latest "."
+    > docker run --rm -it -p 8080:8080 --env-file local.env jsontransform_docker:latest
+
+    #Run app
+    > python server.py
 
 
 Development
