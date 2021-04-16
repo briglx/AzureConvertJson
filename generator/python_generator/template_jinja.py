@@ -31,13 +31,6 @@ def render(data, template_path, template_name, filters=None):
 
     # env.filters["convert"] = mock_filter
 
-    # Register Filter
-    if filters:
-        for filter_name, filter_code in filters.items():
-            env.filters[filter_name] = filter_code
-
-    # env.filters["convert"] = mock_filter
-
     # Get Template
     template = env.get_template(template_name)
 
@@ -60,10 +53,6 @@ def render_json(data, template_path, template_name, filters=None):
     return json.dumps(result_dict)
 
 
-<<<<<<< HEAD:generator/python_generator/template_jinja.py
-<<<<<<< HEAD:generator/python_generator/template_jinja.py
-=======
->>>>>>> 242cd5b... Add Azure Function. Reorg files.:generator/python_generator/template.py
 # def convert_quality_filter(quality):
 #     """Jinja2 Filter to convert quality score."""
 #     quality_map = {
@@ -72,30 +61,8 @@ def render_json(data, template_path, template_name, filters=None):
 #         "A03": "Moderate",
 #         "A04": "Good",
 #     }
-<<<<<<< HEAD:generator/python_generator/template_jinja.py
 
 #     if quality not in quality_map:
 #         raise ValueError("The quality is not a valid value. It must be A01 - A04")
 
 #     return quality_map[quality]
-=======
-def convert_quality_filter(quality):
-    """Jinja2 Filter to convert quality score."""
-    quality_map = {
-        "A01": "Poor",
-        "A02": "OK",
-        "A03": "Moderate",
-        "A04": "Good",
-    }
-=======
->>>>>>> 242cd5b... Add Azure Function. Reorg files.:generator/python_generator/template.py
-
-#     if quality not in quality_map:
-#         raise ValueError("The quality is not a valid value. It must be A01 - A04")
-
-<<<<<<< HEAD:generator/python_generator/template_jinja.py
-    return quality_map[quality]
->>>>>>> e52778d... Reorganize project. Remove extra files.:generator/python_generator/template.py
-=======
-#     return quality_map[quality]
->>>>>>> 242cd5b... Add Azure Function. Reorg files.:generator/python_generator/template.py

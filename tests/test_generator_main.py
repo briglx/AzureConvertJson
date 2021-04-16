@@ -18,5 +18,4 @@ def test_generate_id():
     test_id = main.generate_id()
 
     assert len(test_id) == 32
-
     assert int(test_id, 16)

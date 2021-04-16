@@ -35,12 +35,6 @@ def generate_quality():
     return random.choice(quality_codes)
 
 
-def generate_quality():
-    """Generate Quality Code."""
-    quality_codes = ["A01", "A02", "A03", "A04"]
-    return random.choice(quality_codes)
-
-
 def get_date_now_isoformat():
     """Generate Iso Formatted Date based on Now."""
     cur_time = datetime.utcnow()

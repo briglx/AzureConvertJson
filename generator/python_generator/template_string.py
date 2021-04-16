@@ -1,4 +1,4 @@
-"""Json to Json Conversion using string templates."""
+"""Template with String engine."""
 import os
 from string import Template
 

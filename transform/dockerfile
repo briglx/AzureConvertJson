@@ -11,7 +11,6 @@ RUN pip install --upgrade pip
 ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
     AzureFunctionsJobHost__Logging__Console__IsEnabled=true
 
-
 COPY requirements.txt /home/site/wwwroot/
 RUN pip install -r /home/site/wwwroot/requirements.txt
 
@@ -22,11 +21,3 @@ COPY template_transform.liquid.json /home/site/wwwroot/
 
 ENTRYPOINT [ "/bin/bash" ]
 # CMD [ "/azure-functions-host/Microsoft.Azure.WebJobs.Script.WebHost" ]
-
-COPY host.json /home/site/wwwroot/
-COPY liquid_json_transform/ /home/site/wwwroot/liquid_json_transform/
-COPY template_transform.liquid.json /home/site/wwwroot/
-
-
-# ENTRYPOINT [ "/bin/bash" ]
-CMD [ "/azure-functions-host/Microsoft.Azure.WebJobs.Script.WebHost" ]

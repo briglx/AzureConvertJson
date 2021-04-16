@@ -2,9 +2,7 @@
 import json
 import logging
 import os
-
 import sys
-
 import uuid
 
 import azure.functions as func
@@ -58,13 +56,12 @@ def convert_quality_filter(quality):
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     """Azure function main entry method."""
-
     logger = logging.getLogger(__file__)
     logger.setLevel(logging.DEBUG)
     handler = logging.StreamHandler(stream=sys.stdout)
     logger.addHandler(handler)
 
-    logging.info("Python HTTP trigger function processed a request.")
+    logger.info("Python HTTP trigger function processed a request.")
 
     template_path = os.environ.get("TEMPLATE_PATH")
     template_name = os.environ.get("TEMPLATE_NAME")
@@ -82,6 +79,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     # Get payload
     data = req.get_json()
+
     # Add tracking guid
     data["system_guid"] = generate_guid()
 
