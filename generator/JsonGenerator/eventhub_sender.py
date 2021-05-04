@@ -3,8 +3,12 @@ import datetime
 import json
 import random
 import uuid
+import os
 
 from azure.eventhub import EventData, EventHubProducerClient
+
+CONNECTION_STRING = os.environ.get("EVENT_HUB_CONNECTION_STRING")
+EVENT_HUB_NAME = os.environ.get("EVENT_HUB_NAME")
 
 # This script simulates the production of events for 10 devices.
 devices = []
@@ -13,8 +17,8 @@ for x in range(0, 10):
 
 # Create a producer client to produce and publish events to the event hub.
 producer = EventHubProducerClient.from_connection_string(
-    conn_str="Endpoint=sb://bzeventhubhoneywell.servicebus.windows.net/;SharedAccessKeyName=full;SharedAccessKey=rTC2WBh5rTltnoYb8GnY5vYmwTkVNnv+F/cLSviLYhg=;EntityPath=eventtest",
-    eventhub_name="eventtest",
+    conn_str=CONNECTION_STRING,
+    eventhub_name=EVENT_HUB_NAME,
 )
 
 for y in range(0, 20):  # For each device, produce 20 events.
