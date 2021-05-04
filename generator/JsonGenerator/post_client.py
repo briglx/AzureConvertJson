@@ -104,13 +104,7 @@ if __name__ == "__main__":
                     event_data_batch.add(EventData(jstr))
                     producer.send_batch(event_data_batch)
 
-                # headers = {'Content-type':'application/json','Ocp-Apim-Subscription-Key':'53436f0d75fd496c81e092e5d2a0c68a','Ocp-Apim-Trace':'true'}
-                # commented this out on 4-6-2021
-
-                # r=requests.post(url,jstr,headers=headers)
-                # print (r.status_code)
-                #
-                # print (str(r.text))
+               
 
 # Close the producer.
 producer.close()
