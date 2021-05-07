@@ -1,0 +1,6 @@
+signify spaceId: {{spaceId}}, humidity {{humidity}}, time {{ 1620413258 | epoch: "%Y-%m-%dT%H:%M:%SZ" }}, 
+{%- if humidity <=50 and humidity >= 30 -%}
+Good
+{%- else -%}
+Poor
+{%- endif -%}
