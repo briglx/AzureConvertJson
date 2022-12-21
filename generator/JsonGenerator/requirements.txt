@@ -16,7 +16,7 @@ azure-eventhub==5.2.0
     # via -r requirements.in
 azure-storage-blob==12.6.0
     # via -r requirements.in
-certifi==2020.12.5
+certifi==2022.12.7
     # via
     #   msrest
     #   requests
@@ -45,14 +45,14 @@ pycparser==2.20
     # via cffi
 python-dateutil==2.8.1
     # via arrow
-requests-oauthlib==1.3.0
-    # via msrest
 requests==2.25.1
     # via
     #   -r requirements.in
     #   azure-core
     #   msrest
     #   requests-oauthlib
+requests-oauthlib==1.3.0
+    # via msrest
 six==1.15.0
     # via
     #   azure-core
