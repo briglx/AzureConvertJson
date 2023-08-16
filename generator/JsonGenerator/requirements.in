@@ -1,6 +1,6 @@
 arrow==0.10.0
 docopt==0.6.2
-requests==2.25.1
+requests==2.31.0
 jinja2==2.11.3
 azure-eventhub==5.2.0
 avro-python3==1.10.1
